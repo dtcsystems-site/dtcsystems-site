@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTC Systems AI — AI Systems That Scale DTC Brands</title>
+    <meta name="description" content="Production-ready AI systems built for DTC brand founders doing $2M–$50M. Landing pages, CRO copy, post-purchase flows — all powered by Claude.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --charcoal: #141414;
+            --dark-grey: #1a1a1a;
+            --mid-grey: #2a2a2a;
+            --border-grey: #333333;
+            --text-muted: #888888;
+            --text-light: #cccccc;
+            --white: #f5f5f5;
+            --gold: #c9a84c;
+            --gold-hover: #d4b85c;
+            --gold-dim: rgba(201, 168, 76, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 3rem;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-grey);
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--gold);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            transition: background 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-hover);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 6rem;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-grey), transparent);
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            max-width: 800px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            max-width: 540px;
+            line-height: 1.7;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gold);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border: 1px solid var(--border-grey);
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+            margin-left: 1rem;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-grey), transparent);
+        }
+
+        .section-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 560px;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 3.5rem;
+        }
+
+        /* PRODUCTS */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .product-card {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 2rem;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .product-card .product-name {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .product-card .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .product-card .product-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-card .product-link {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .product-card .product-link:hover {
+            opacity: 0.8;
+        }
+
+        .product-card .product-link::after {
+            content: ' \2192';
+        }
+
+        /* BUNDLE CARD */
+        .product-card.bundle {
+            border-color: var(--gold);
+            position: relative;
+            background: linear-gradient(135deg, var(--charcoal), rgba(201, 168, 76, 0.05));
+        }
+
+        .bundle-badge {
+            position: absolute;
+            top: -1px;
+            right: 2rem;
+            background: var(--gold);
+            color: var(--black);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.75rem;
+        }
+
+        /* AUDIENCE */
+        .audience-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .audience-text {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .audience-text strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .audience-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .stat-card {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 1.5rem;
+        }
+
+        .stat-card .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* CREDIBILITY */
+        .cred-section {
+            background: var(--charcoal);
+        }
+
+        .cred-content {
+            max-width: 700px;
+        }
+
+        .cred-text {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        .cred-brands {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .cred-brand {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-grey);
+            transition: all 0.2s ease;
+        }
+
+        .cred-brand:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* FINAL CTA */
+        .final-cta {
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+
+        .final-cta::after {
+            display: none;
+        }
+
+        .final-cta .section-title {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .final-cta .section-subtitle {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 2.5rem;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 2rem 3rem;
+            border-top: 1px solid var(--border-grey);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: var(--gold);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .hero {
+                padding: 7rem 1.5rem 4rem;
+                min-height: 90vh;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .audience-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 0.75rem;
+            }
+
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 0.75rem;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="/" class="logo">DTC Systems<span>.</span></a>
+        <a href="#products" class="nav-cta">View Systems</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-label">AI Systems for DTC Brands</div>
+        <h1>The AI systems your<br>DTC brand is <em>missing</em></h1>
+        <p>Production-ready AI systems that handle landing pages, conversion copy, and post-purchase flows. Built by an operator who runs them daily inside scaling DTC brands.</p>
+        <div class="hero-buttons">
+            <a href="#products" class="btn-primary">Explore Systems</a>
+            <a href="#built-by" class="btn-secondary">Why Trust This</a>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products">
+        <div class="section-inner">
+            <div class="section-label">Systems</div>
+            <h2 class="section-title">Plug in. Switch on. Scale.</h2>
+            <p class="section-subtitle">Each system is a Claude Skill — install it once and it works inside your workflow immediately. No dev time. No agency retainer.</p>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-name">Landing Page Builder</div>
+                    <div class="product-price">$147</div>
+                    <div class="product-desc">Generates high-converting landing pages styled to your brand. Feed it a product URL and a target audience — it outputs a complete page ready for Shopify.</div>
+                    <a href="/products/landing-page-builder.html" class="product-link">Get this system</a>
+                </div>
+                <div class="product-card">
+                    <div class="product-name">CRO Copywriter</div>
+                    <div class="product-price">$127</div>
+                    <div class="product-desc">Rewrites your product pages, collection pages, and ads with conversion-focused copy grounded in DTC best practices and your brand voice.</div>
+                    <a href="/products/cro-copywriter.html" class="product-link">Get this system</a>
+                </div>
+                <div class="product-card">
+                    <div class="product-name">Post-Purchase Flow Builder</div>
+                    <div class="product-price">$97</div>
+                    <div class="product-desc">Creates complete post-purchase email and SMS flows — from order confirmation to review requests to replenishment reminders. Retention on autopilot.</div>
+                    <a href="/products/post-purchase-flow-builder.html" class="product-link">Get this system</a>
+                </div>
+                <div class="product-card bundle">
+                    <div class="bundle-badge">Best Value</div>
+                    <div class="product-name">Complete Conversion Stack</div>
+                    <div class="product-price">$397</div>
+                    <div class="product-desc">All three systems in one bundle. Landing pages, CRO copy, and post-purchase flows — the full conversion pipeline from first click to repeat customer.</div>
+                    <a href="/products/complete-conversion-stack.html" class="product-link">Get the full stack</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO IT'S FOR -->
+    <section id="audience">
+        <div class="section-inner">
+            <div class="section-label">Who This Is For</div>
+            <h2 class="section-title">DTC founders doing $2M–$50M<br>who don't have time for this</h2>
+            <div class="audience-content">
+                <div class="audience-text">
+                    You know AI could be doing more across your brand. Landing pages, product copy, retention flows — it should all be faster, sharper, and more systematised.
+                    <br><br>
+                    But you're running a brand. You don't have time to figure out prompt engineering, build custom workflows, or hire an agency to do it at 10x the cost.
+                    <br><br>
+                    <strong>These systems are built by someone who operates them daily inside a scaling DTC brand.</strong> They're not theoretical — they're the same systems running in production right now.
+                </div>
+                <div class="audience-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Years in DTC eCommerce</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">DTC brands operated</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">$2M–50M</div>
+                        <div class="stat-label">Revenue sweet spot</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">&lt;5 min</div>
+                        <div class="stat-label">To install any system</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CREDIBILITY -->
+    <section id="built-by" class="cred-section">
+        <div class="section-inner">
+            <div class="section-label">Built By</div>
+            <h2 class="section-title">Not another AI consultant.<br>An operator who builds this daily.</h2>
+            <div class="cred-content">
+                <p class="cred-text">
+                    I'm Jack — I build and run AI systems full-time inside a certified B-Corp scaling DTC brand. Before that, I spent a decade operating eCommerce across brands you've probably bought from.
+                    <br><br>
+                    Every system I sell here is something I've built, tested, and run in production. The R&D happens on the day job. DTC Systems packages the best of it so other founders can plug it in without starting from scratch.
+                </p>
+                <div class="cred-brands">
+                    <div class="cred-brand">Koala</div>
+                    <div class="cred-brand">Vivo Life</div>
+                    <div class="cred-brand">Myprotein</div>
+                    <div class="cred-brand">Musclefood</div>
+                    <div class="cred-brand">Years.com</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <div class="section-inner">
+            <div class="section-label">Get Started</div>
+            <h2 class="section-title">Your brand should be running these systems already</h2>
+            <p class="section-subtitle">Pick a system. Install it. Start producing in minutes — not months.</p>
+            <a href="#products" class="btn-primary">View All Systems</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <span>&copy; 2026 DTC Systems AI. All rights reserved.</span>
+        <span><a href="mailto:jack@dtcsystems.ai">jack@dtcsystems.ai</a></span>
+    </footer>
+
+</body>
+</html>
