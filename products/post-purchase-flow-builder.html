@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-Purchase Flow Builder — DTC Systems AI</title>
+    <meta name="description" content="Build a complete post-purchase email sequence calibrated to your repurchase window. Copy, timing, and conditional logic ready for Klaviyo. $97 one-time.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --black: #0a0a0a; --charcoal: #141414; --dark-grey: #1a1a1a; --mid-grey: #2a2a2a;
+            --border-grey: #333333; --text-muted: #888888; --text-light: #cccccc; --white: #f5f5f5;
+            --gold: #c9a84c; --gold-hover: #d4b85c; --gold-dim: rgba(201, 168, 76, 0.15);
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--black); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-grey); }
+        .logo { font-size: 1.1rem; font-weight: 600; letter-spacing: -0.02em; color: var(--white); text-decoration: none; }
+        .logo span { color: var(--gold); }
+        .nav-links { display: flex; align-items: center; gap: 2rem; }
+        .nav-back { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+        .nav-back:hover { color: var(--gold); }
+        .nav-cta { display: inline-block; padding: 0.6rem 1.5rem; background: var(--gold); color: var(--black); text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.03em; text-transform: uppercase; transition: background 0.2s ease; }
+        .nav-cta:hover { background: var(--gold-hover); }
+        .product-hero { padding: 10rem 2rem 5rem; max-width: 900px; margin: 0 auto; }
+        .product-label { display: inline-block; padding: 0.4rem 1rem; border: 1px solid var(--gold); color: var(--gold); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2rem; }
+        .product-hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+        .product-tagline { font-size: 1.15rem; color: var(--text-light); max-width: 600px; line-height: 1.7; font-weight: 300; margin-bottom: 2.5rem; }
+        .price-row { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 2.5rem; }
+        .price { font-size: 2.5rem; font-weight: 700; color: var(--gold); }
+        .price-note { font-size: 0.85rem; color: var(--text-muted); }
+        .btn-primary { display: inline-block; padding: 1rem 2.5rem; background: var(--gold); color: var(--black); text-decoration: none; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.2s ease; }
+        .btn-primary:hover { background: var(--gold-hover); transform: translateY(-1px); }
+        .divider { max-width: 900px; margin: 0 auto; height: 1px; background: linear-gradient(90deg, var(--border-grey), transparent); }
+        .content-section { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
+        .section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+        .section-title { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 2rem; line-height: 1.2; }
+        .section-text { font-size: 1rem; color: var(--text-light); line-height: 1.8; font-weight: 300; margin-bottom: 1.5rem; }
+        .section-text strong { color: var(--white); font-weight: 600; }
+        .features-list { list-style: none; display: grid; gap: 1rem; }
+        .features-list li { display: flex; align-items: flex-start; gap: 1rem; font-size: 0.95rem; color: var(--text-light); line-height: 1.6; }
+        .features-list li::before { content: ''; flex-shrink: 0; width: 6px; height: 6px; background: var(--gold); margin-top: 0.55rem; }
+        .steps { display: grid; gap: 1.5rem; }
+        .step { display: grid; grid-template-columns: 3rem 1fr; gap: 1.25rem; align-items: start; }
+        .step-num { font-size: 1.5rem; font-weight: 700; color: var(--gold); }
+        .step-content h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.35rem; }
+        .step-content p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+        .faq-list { display: grid; gap: 2rem; }
+        .faq-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--white); }
+        .faq-item p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+        .bottom-cta { max-width: 900px; margin: 0 auto; padding: 4rem 2rem 6rem; text-align: center; }
+        .bottom-cta .section-title { margin-bottom: 1rem; }
+        .bottom-cta .section-text { max-width: 500px; margin: 0 auto 2rem; }
+        footer { padding: 2rem 3rem; border-top: 1px solid var(--border-grey); display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-muted); }
+        footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s ease; }
+        footer a:hover { color: var(--gold); }
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; } .product-hero { padding: 7rem 1.5rem 3rem; } .content-section { padding: 3rem 1.5rem; }
+            .step { grid-template-columns: 2rem 1fr; } footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo">DTC Systems<span>.</span></a>
+        <div class="nav-links">
+            <a href="/#products" class="nav-back">&larr; All Systems</a>
+            <a href="#buy" class="nav-cta">Get This System</a>
+        </div>
+    </nav>
+
+    <div class="product-hero">
+        <div class="product-label">AI System</div>
+        <h1>Post-Purchase Flow Builder</h1>
+        <p class="product-tagline">Build a complete post-purchase email sequence calibrated to your repurchase window. Copy, timing, and conditional logic ready for Klaviyo.</p>
+        <div class="price-row">
+            <div class="price">$97</div>
+            <div class="price-note">One-time payment. Use forever.</div>
+        </div>
+        <a href="#buy" class="btn-primary">Get This System</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content-section">
+        <div class="section-label">Description</div>
+        <h2 class="section-title">60–70% of your revenue potential is in repeat purchases</h2>
+        <p class="section-text">Your post-purchase experience is a shipping confirmation and a review request. Meanwhile, the majority of your revenue potential lives in repeat purchases — and you're leaving it on the table.</p>
+        <p class="section-text">This AI system builds a complete post-purchase email and SMS flow for your DTC brand. It maps your customer journey, calibrates timing to your product's repurchase window, writes every email in your brand voice, and outputs the full flow with conditional logic ready to build in Klaviyo, Omnisend, or your ESP of choice.</p>
+        <p class="section-text"><strong>8–10 email and SMS touchpoints.</strong> Order confirmation through winback. Every delay calculated. Every split intentional. Every email written — not templated.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content-section">
+        <div class="section-label">What You Get</div>
+        <h2 class="section-title">Everything included</h2>
+        <ul class="features-list">
+            <li>A Claude Skill (SKILL.md) you install once and own forever</li>
+            <li>Complete post-purchase flow architecture (8–10 touchpoints)</li>
+            <li>Full copy for every email and SMS: subject lines (with A/B variants), preview text, body copy, and CTAs</li>
+            <li>Flow diagram with every delay, conditional split, and exit condition mapped — ready to build in your ESP</li>
+            <li>Timing calibrated to your product's repurchase window (supplements, skincare, food, apparel — it adjusts)</li>
+            <li>Conditional splits for engagement level, product category, and customer value</li>
+            <li>ESP setup notes specific to Klaviyo, Omnisend, or your platform</li>
+            <li>Measurement framework: KPIs, benchmarks, and what to optimise first</li>
+            <li>Video installation guide (15 minutes)</li>
+            <li>Written setup documentation</li>
+        </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content-section">
+        <div class="section-label">Who This Is For</div>
+        <h2 class="section-title">For brands with basic or broken retention flows</h2>
+        <p class="section-text">DTC brand founders and retention marketers who know their post-purchase email flows are either non-existent, basic, or underperforming — and want a system that builds the whole thing, not just a template they have to fill in themselves.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content-section">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">From zero to full retention flow</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">01</div>
+                <div class="step-content">
+                    <h3>Install the Skill</h3>
+                    <p>Install the Claude Skill in Claude Cowork or Claude Code. 5 minutes.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">02</div>
+                <div class="step-content">
+                    <h3>Tell it about your brand</h3>
+                    <p>Share your brand, products, and repurchase cycle. The system calibrates timing and messaging to your specific category.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">03</div>
+                <div class="step-content">
+                    <h3>Get the complete flow</h3>
+                    <p>Receive a full post-purchase flow with all copy written and conditional logic mapped — ready to build in your ESP.</p>
+                </div>
+            </div>
+        </div>
+        <p class="section-text" style="margin-top: 2rem;">Take the output, build it in your ESP, and start converting one-time buyers into repeat customers.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content-section">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Common questions</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <h3>Does this work with my email platform?</h3>
+                <p>Yes. The system is ESP-agnostic — it outputs the flow structure, copy, and logic in a format that works with Klaviyo, Omnisend, Mailchimp, Drip, or any platform that supports automated flows. It includes platform-specific setup notes for Klaviyo and Omnisend.</p>
+            </div>
+            <div class="faq-item">
+                <h3>I already have post-purchase emails. Can this improve them?</h3>
+                <p>Absolutely. Share your current flow and it'll audit what you have, identify gaps, and either improve your existing flow or build a better one from scratch.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How long does the flow take to build in my ESP?</h3>
+                <p>Most operators can build the complete flow in 2–4 hours. The system gives you everything — you're executing, not strategising.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="bottom-cta" id="buy">
+        <div class="section-label">Get Started</div>
+        <h2 class="section-title">Stop leaving repeat revenue on the table</h2>
+        <p class="section-text">One-time payment. No subscription. Use it forever.</p>
+        <a href="#" class="btn-primary">Buy Now — $97</a>
+    </div>
+
+    <footer>
+        <span>&copy; 2026 DTC Systems AI. All rights reserved.</span>
+        <span><a href="mailto:jack@dtcsystems.ai">jack@dtcsystems.ai</a></span>
+    </footer>
+
+</body>
+</html>

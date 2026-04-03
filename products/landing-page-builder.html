@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Builder — DTC Systems AI</title>
+    <meta name="description" content="Generate high-converting Shopify landing pages styled to your brand. Preview in your browser, then drop straight into your theme code editor. $147 one-time.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --black: #0a0a0a; --charcoal: #141414; --dark-grey: #1a1a1a; --mid-grey: #2a2a2a;
+            --border-grey: #333333; --text-muted: #888888; --text-light: #cccccc; --white: #f5f5f5;
+            --gold: #c9a84c; --gold-hover: #d4b85c; --gold-dim: rgba(201, 168, 76, 0.15);
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background-color: var(--black); color: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+        /* NAV */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 3rem; background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-grey); }
+        .logo { font-size: 1.1rem; font-weight: 600; letter-spacing: -0.02em; color: var(--white); text-decoration: none; }
+        .logo span { color: var(--gold); }
+        .nav-links { display: flex; align-items: center; gap: 2rem; }
+        .nav-back { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+        .nav-back:hover { color: var(--gold); }
+        .nav-cta { display: inline-block; padding: 0.6rem 1.5rem; background: var(--gold); color: var(--black); text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.03em; text-transform: uppercase; transition: background 0.2s ease; }
+        .nav-cta:hover { background: var(--gold-hover); }
+
+        /* PRODUCT HERO */
+        .product-hero { padding: 10rem 2rem 5rem; max-width: 900px; margin: 0 auto; }
+        .product-label { display: inline-block; padding: 0.4rem 1rem; border: 1px solid var(--gold); color: var(--gold); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2rem; }
+        .product-hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+        .product-hero h1 em { font-style: normal; color: var(--gold); }
+        .product-tagline { font-size: 1.15rem; color: var(--text-light); max-width: 600px; line-height: 1.7; font-weight: 300; margin-bottom: 2.5rem; }
+        .price-row { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 2.5rem; }
+        .price { font-size: 2.5rem; font-weight: 700; color: var(--gold); }
+        .price-note { font-size: 0.85rem; color: var(--text-muted); }
+        .btn-primary { display: inline-block; padding: 1rem 2.5rem; background: var(--gold); color: var(--black); text-decoration: none; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; transition: all 0.2s ease; }
+        .btn-primary:hover { background: var(--gold-hover); transform: translateY(-1px); }
+
+        /* DIVIDER */
+        .divider { max-width: 900px; margin: 0 auto; height: 1px; background: linear-gradient(90deg, var(--border-grey), transparent); }
+
+        /* SECTIONS */
+        .content-section { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
+        .section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+        .section-title { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 2rem; line-height: 1.2; }
+        .section-text { font-size: 1rem; color: var(--text-light); line-height: 1.8; font-weight: 300; margin-bottom: 1.5rem; }
+        .section-text strong { color: var(--white); font-weight: 600; }
+
+        /* WHAT YOU GET */
+        .features-list { list-style: none; display: grid; gap: 1rem; }
+        .features-list li { display: flex; align-items: flex-start; gap: 1rem; font-size: 0.95rem; color: var(--text-light); line-height: 1.6; }
+        .features-list li::before { content: ''; flex-shrink: 0; width: 6px; height: 6px; background: var(--gold); margin-top: 0.55rem; }
+
+        /* HOW IT WORKS */
+        .steps { display: grid; gap: 1.5rem; counter-reset: step; }
+        .step { display: grid; grid-template-columns: 3rem 1fr; gap: 1.25rem; align-items: start; }
+        .step-num { font-size: 1.5rem; font-weight: 700; color: var(--gold); }
+        .step-content h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.35rem; }
+        .step-content p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+        /* FAQ */
+        .faq-list { display: grid; gap: 2rem; }
+        .faq-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--white); }
+        .faq-item p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+
+        /* BOTTOM CTA */
+        .bottom-cta { max-width: 900px; margin: 0 auto; padding: 4rem 2rem 6rem; text-align: center; }
+        .bottom-cta .section-title { margin-bottom: 1rem; }
+        .bottom-cta .section-text { max-width: 500px; margin: 0 auto 2rem; }
+
+        /* FOOTER */
+        footer { padding: 2rem 3rem; border-top: 1px solid var(--border-grey); display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-muted); }
+        footer a { color: var(--text-muted); text-decoration: none; transition: color 0.2s ease; }
+        footer a:hover { color: var(--gold); }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .product-hero { padding: 7rem 1.5rem 3rem; }
+            .content-section { padding: 3rem 1.5rem; }
+            .step { grid-template-columns: 2rem 1fr; }
+            footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo">DTC Systems<span>.</span></a>
+        <div class="nav-links">
+            <a href="/#products" class="nav-back">&larr; All Systems</a>
+            <a href="#buy" class="nav-cta">Get This System</a>
+        </div>
+    </nav>
+
+    <div class="product-hero">
+        <div class="product-label">AI System</div>
+        <h1>Landing Page Builder</h1>
+        <p class="product-tagline">Generate high-converting Shopify landing pages styled to your brand. Preview in your browser, then drop straight into your theme code editor.</p>
+        <div class="price-row">
+            <div class="price">$147</div>
+            <div class="price-note">One-time payment. Use forever.</div>
+        </div>
+        <a href="#buy" class="btn-primary">Get This System</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content-section">
+        <div class="section-label">Description</div>
+        <h2 class="section-title">Stop paying agencies $5,000+ per landing page</h2>
+        <p class="section-text">This AI system generates complete, conversion-optimised landing pages for your DTC brand — styled to match your existing site and ready to install in Shopify.</p>
+        <p class="section-text">Give it your product URL and your website. It reads your brand's colours, fonts, button styles, and layout conventions from your live site — then builds a landing page that looks like it belongs there. Not a generic template. <strong>A page that feels native to your brand</strong>, structured around proven DTC conversion architecture tested on real revenue.</p>
+        <p class="section-text">The system works in two stages. First it builds an HTML preview you can open in your browser and review — copy, design, structure, everything — before a single line of code touches your store. Once you're happy, it converts the approved page into Shopify Liquid sections and a JSON page template you drop straight into your theme code editor. No developer needed.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content-section">
+        <div class="section-label">What You Get</div>
+        <h2 class="section-title">Everything included</h2>
+        <ul class="features-list">
+            <li>A Claude Skill (SKILL.md) you install once and use forever — no subscription, no recurring fees</li>
+            <li>Automatic brand styling extraction — fetches your live site and maps your colours, fonts, spacing, and button styles into the page so it looks native from the start</li>
+            <li>Full HTML preview file you review and approve before anything goes near Shopify</li>
+            <li>Conversion-optimised copy across all 8 sections: hero, problem agitation, solution, how it works, social proof, objection handling, offer, and final CTA</li>
+            <li>A/B test variant suggestions with every page it builds</li>
+            <li>Complete Shopify output: individual Liquid section files with schema settings (editable from the theme customiser) and a JSON page template that assembles them</li>
+            <li>Each section is self-contained and reusable across other pages in your store</li>
+            <li>Installation instructions for the Shopify theme code editor — no guessing</li>
+            <li>Video installation guide (15 minutes)</li>
+            <li>Written setup documentation</li>
+        </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content-section">
+        <div class="section-label">Who This Is For</div>
+        <h2 class="section-title">Built for DTC operators, not developers</h2>
+        <p class="section-text">DTC brand founders and operators running on Shopify who need high-converting landing pages for paid social campaigns, email promotions, and product launches — without the agency price tag, the 3-week turnaround, or pages that look like they came from a different website.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content-section">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">Live in under 30 minutes</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">01</div>
+                <div class="step-content">
+                    <h3>Install the Skill</h3>
+                    <p>Install the Claude Skill in Claude Cowork or Claude Code. Takes 5 minutes — the video shows you how.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">02</div>
+                <div class="step-content">
+                    <h3>Give it your inputs</h3>
+                    <p>Your product URL, your website URL, and your target audience. That's all it needs.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">03</div>
+                <div class="step-content">
+                    <h3>Review the preview</h3>
+                    <p>Open the HTML preview in your browser and give feedback until it's exactly right.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">04</div>
+                <div class="step-content">
+                    <h3>Drop it into Shopify</h3>
+                    <p>Get Shopify-ready Liquid files — copy them into your theme code editor and the page is live.</p>
+                </div>
+            </div>
+        </div>
+        <p class="section-text" style="margin-top: 2rem;">You own everything outright. Use it as many times as you want, for as many products as you want. No per-page fees. No limits.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content-section">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Common questions</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <h3>What do I need to use this?</h3>
+                <p>A Claude Pro or Team subscription ($20/month from Anthropic) and a Shopify store. The Skill runs inside Claude — no other tools or software required.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Can I use this for multiple products?</h3>
+                <p>Yes. Run it once per landing page — there's no limit on how many pages you build.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Do I need to know how to code?</h3>
+                <p>No. The Shopify files are ready to copy-paste. The installation guide walks you through exactly where each file goes in the theme code editor — it takes about 10 minutes.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Will the page actually look like my brand?</h3>
+                <p>Yes — this is what makes it different from other landing page tools. The system fetches your live website and extracts your brand's visual identity (colours, fonts, spacing, button style) before building anything. The preview will look like a page that already exists on your site.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What makes this different from ChatGPT or other AI tools?</h3>
+                <p>Three things: it extracts your brand styling automatically so the page looks native, it follows a proven 8-section DTC conversion framework rather than generating generic copy, and it outputs Shopify-ready Liquid code — not just a HTML file you have to figure out how to use.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="bottom-cta" id="buy">
+        <div class="section-label">Get Started</div>
+        <h2 class="section-title">Build your first landing page today</h2>
+        <p class="section-text">One-time payment. No subscription. Use it forever.</p>
+        <a href="#" class="btn-primary">Buy Now — $147</a>
+    </div>
+
+    <footer>
+        <span>&copy; 2026 DTC Systems AI. All rights reserved.</span>
+        <span><a href="mailto:jack@dtcsystems.ai">jack@dtcsystems.ai</a></span>
+    </footer>
+
+</body>
+</html>
