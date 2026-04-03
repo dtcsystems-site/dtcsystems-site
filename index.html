@@ -359,6 +359,22 @@
             background: var(--charcoal);
         }
 
+        .cred-layout {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .cred-headshot {
+            width: 200px;
+            height: 250px;
+            object-fit: cover;
+            object-position: center top;
+            border: 1px solid var(--border-grey);
+            filter: grayscale(20%);
+        }
+
         .cred-content {
             max-width: 700px;
         }
@@ -391,6 +407,25 @@
         .cred-brand:hover {
             border-color: var(--gold);
             color: var(--gold);
+        }
+
+        .cred-linkedin {
+            display: inline-block;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            transition: opacity 0.2s ease;
+        }
+
+        .cred-linkedin:hover {
+            opacity: 0.8;
+        }
+
+        .cred-linkedin::after {
+            content: ' \2192';
         }
 
         /* FINAL CTA */
@@ -455,6 +490,17 @@
             .audience-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+
+            .cred-layout {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
+            }
+
+            .cred-headshot {
+                width: 160px;
+                height: 200px;
             }
 
             .products-grid {
@@ -577,18 +623,22 @@
         <div class="section-inner">
             <div class="section-label">Built By</div>
             <h2 class="section-title">Not another AI consultant.<br>An operator who builds this daily.</h2>
-            <div class="cred-content">
-                <p class="cred-text">
-                    I'm Jack — I build and run AI systems full-time inside a certified B-Corp scaling DTC brand. Before that, I spent a decade operating eCommerce across brands you've probably bought from.
-                    <br><br>
-                    Every system I sell here is something I've built, tested, and run in production. The R&D happens on the day job. DTC Systems packages the best of it so other founders can plug it in without starting from scratch.
-                </p>
-                <div class="cred-brands">
-                    <div class="cred-brand">Koala</div>
-                    <div class="cred-brand">Vivo Life</div>
-                    <div class="cred-brand">Myprotein</div>
-                    <div class="cred-brand">Musclefood</div>
-                    <div class="cred-brand">Years.com</div>
+            <div class="cred-layout">
+                <img src="jack-headshot.jpg" alt="Jack Maullin" class="cred-headshot">
+                <div class="cred-content">
+                    <p class="cred-text">
+                        I'm Jack — I build and run AI systems full-time inside a certified B-Corp scaling DTC brand. Before that, I spent a decade operating eCommerce across brands you've probably bought from.
+                        <br><br>
+                        Every system I sell here is something I've built, tested, and run in production. The R&D happens on the day job. DTC Systems packages the best of it so other founders can plug it in without starting from scratch.
+                    </p>
+                    <div class="cred-brands">
+                        <div class="cred-brand">Koala</div>
+                        <div class="cred-brand">Vivo Life</div>
+                        <div class="cred-brand">Myprotein</div>
+                        <div class="cred-brand">Musclefood</div>
+                        <div class="cred-brand">Years.com</div>
+                    </div>
+                    <a href="https://www.linkedin.com/in/jackmaullin/" target="_blank" rel="noopener" class="cred-linkedin">Connect on LinkedIn</a>
                 </div>
             </div>
         </div>
