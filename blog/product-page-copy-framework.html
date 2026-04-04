@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Framework for High-Converting Product Page Copy — DTC Systems Blog</title>
+    <meta name="google-site-verification" content="pVAF_b_D_OD7kkCEykHRVfeBVmUybDz_ndGkcC-pO7U" />
+    <meta name="description" content="Shopify stores average 1.4-1.8% conversion; top 20% hit 3.2%+. Framework: benefit-focused hero, feature-to-benefit translation, above-fold social proof, scarcity, and CTAs. 48% of cart abandonment is shipping/tax surprise.">
+    <meta name="canonical" href="https://dtcsystems.ai/blog/product-page-copy-framework.html">
+    <meta property="og:title" content="The Framework for High-Converting Product Page Copy">
+    <meta property="og:description" content="A proven framework for writing Shopify product pages that convert: hero section, benefits vs features, social proof placement, urgency, and AI-assisted workflows.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dtcsystems.ai/blog/product-page-copy-framework.html">
+    <meta property="og:image" content="https://dtcsystems.ai/blog/product-page-copy-framework-og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Framework for High-Converting Product Page Copy">
+    <meta name="twitter:description" content="A proven framework for writing Shopify product pages that convert: hero section, benefits vs features, social proof placement, urgency, and AI-assisted workflows.">
+    <meta name="twitter:image" content="https://dtcsystems.ai/blog/product-page-copy-framework-og.jpg">
+    <meta property="article:published_time" content="2026-04-04T10:00:00Z">
+    <meta property="article:modified_time" content="2026-04-04T10:00:00Z">
+    <meta property="article:author" content="Jack Maullin">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --charcoal: #141414;
+            --dark-grey: #1a1a1a;
+            --mid-grey: #2a2a2a;
+            --border-grey: #333333;
+            --text-muted: #888888;
+            --text-light: #cccccc;
+            --white: #f5f5f5;
+            --gold: #c9a84c;
+            --gold-hover: #d4b85c;
+            --gold-dim: rgba(201, 168, 76, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAV */
+        nav {
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 3rem;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-grey);
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--gold);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            transition: background 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-hover);
+        }
+
+        /* BACK TO BLOG */
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+        }
+
+        .back-link::before {
+            content: '\2190 ';
+        }
+
+        /* BREADCRUMBS */
+        .breadcrumbs {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumbs a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--gold);
+        }
+
+        /* ARTICLE HEADER */
+        .article-header {
+            max-width: 720px;
+            margin: 0 auto 3rem;
+            padding: 0 2rem;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* MAIN CONTENT */
+        .article-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* AI SNIPPET BOX */
+        .ai-snippet {
+            background: var(--charcoal);
+            border-left: 4px solid var(--gold);
+            padding: 1.5rem;
+            margin: 2.5rem 0;
+            border-radius: 2px;
+        }
+
+        .ai-snippet-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .ai-snippet p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--white);
+        }
+
+        /* TABLE OF CONTENTS */
+        .toc {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 1.5rem;
+            margin: 2.5rem 0;
+            border-radius: 2px;
+        }
+
+        .toc-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .toc a:hover {
+            color: var(--gold);
+        }
+
+        /* ARTICLE TEXT */
+        .article-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+            scroll-margin-top: 100px;
+        }
+
+        .article-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.75rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+            color: var(--text-light);
+            scroll-margin-top: 100px;
+        }
+
+        .article-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .article-content em {
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        .article-content a {
+            color: var(--gold);
+            text-decoration: underline;
+            text-decoration-color: rgba(201, 168, 76, 0.4);
+            text-underline-offset: 3px;
+            transition: all 0.2s ease;
+        }
+
+        .article-content a:hover {
+            color: var(--gold-hover);
+            text-decoration-color: var(--gold);
+        }
+
+        /* LISTS */
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            margin-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        /* BLOCKQUOTES */
+        .article-content blockquote {
+            border-left: 4px solid var(--gold);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            color: var(--text-light);
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* CODE BLOCKS */
+        .article-content code {
+            background: var(--charcoal);
+            padding: 0.2rem 0.4rem;
+            border-radius: 2px;
+            font-size: 0.9em;
+            color: var(--gold);
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 1.5rem;
+            border-radius: 2px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: var(--text-light);
+        }
+
+        /* CALLOUT BOXES */
+        .callout {
+            background: var(--charcoal);
+            border-left: 4px solid var(--gold);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 2px;
+        }
+
+        .callout-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .callout p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* PRO TIPS SECTION */
+        .pro-tips {
+            background: linear-gradient(135deg, var(--charcoal), rgba(201, 168, 76, 0.05));
+            border: 1px solid var(--border-grey);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border-radius: 2px;
+        }
+
+        .pro-tips h3 {
+            margin-top: 0;
+            color: var(--gold);
+        }
+
+        .pro-tips ul {
+            margin-left: 1.5rem;
+        }
+
+        .pro-tips li {
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+        }
+
+        /* FAQ SECTION */
+        .faq-section {
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-grey);
+            border-bottom: 1px solid var(--border-grey);
+        }
+
+        .faq-section h2 {
+            margin-top: 0;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* CTA BOX */
+        .article-cta {
+            background: var(--charcoal);
+            border: 1px solid var(--gold);
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            border-radius: 2px;
+        }
+
+        .article-cta h3 {
+            margin-top: 0;
+            color: var(--white);
+        }
+
+        .article-cta p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--gold);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-hover);
+            transform: translateY(-1px);
+        }
+
+        /* AUTHOR BIO */
+        .author-bio {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 2rem;
+            margin: 3rem 0;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            border-radius: 2px;
+        }
+
+        .author-bio-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 1px solid var(--border-grey);
+        }
+
+        .author-bio-content {
+            flex-grow: 1;
+        }
+
+        .author-bio-name {
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-bio-title {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .author-bio-text {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .author-bio-link {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            transition: opacity 0.2s ease;
+        }
+
+        .author-bio-link:hover {
+            opacity: 0.8;
+        }
+
+        .author-bio-link::after {
+            content: ' \2192';
+        }
+
+        /* RELATED ARTICLES */
+        .related-articles {
+            margin: 3rem 0;
+            padding: 2rem 0 0;
+            border-top: 1px solid var(--border-grey);
+        }
+
+        .related-articles h2 {
+            margin-top: 0;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .article-card {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s ease;
+            border-radius: 2px;
+        }
+
+        .article-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .article-card-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .article-card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            color: var(--white);
+        }
+
+        .article-card-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .article-card-link {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: opacity 0.2s ease;
+        }
+
+        .article-card-link:hover {
+            opacity: 0.8;
+        }
+
+        .article-card-link::after {
+            content: ' \2192';
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 2rem 3rem;
+            border-top: 1px solid var(--border-grey);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: var(--gold);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .article-header {
+                padding: 0 1.5rem;
+            }
+
+            .article-content {
+                padding: 0 1.5rem;
+            }
+
+            .article-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.4rem;
+            }
+
+            .article-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .author-bio {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .author-bio-image {
+                margin: 0 auto;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 0.75rem;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="/" class="logo">DTC Systems<span>.</span></a>
+        <a href="/blog" class="nav-cta">Read Blog</a>
+    </nav>
+
+    <!-- BREADCRUMBS & BACK -->
+    <div class="article-content">
+        <a href="/blog" class="back-link">Back to blog</a>
+        <div class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
+                <meta itemprop="position" content="1">
+            </span>
+            &nbsp;/&nbsp;
+            <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="/blog"><span itemprop="name">Blog</span></a>
+                <meta itemprop="position" content="2">
+            </span>
+            &nbsp;/&nbsp;
+            <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name">The Framework for High-Converting Product Page Copy</span>
+                <meta itemprop="position" content="3">
+            </span>
+        </div>
+    </div>
+
+    <!-- ARTICLE HEADER -->
+    <article itemscope itemtype="https://schema.org/Article">
+        <meta itemprop="author" content="Jack Maullin">
+        <meta itemprop="publisher" content="DTC Systems">
+        <meta itemprop="headline" content="The Framework for High-Converting Product Page Copy">
+        <meta itemprop="description" content="A step-by-step framework for writing Shopify product pages that convert. Real DTC examples and AI-assisted workflows included.">
+        <meta itemprop="image" content="https://dtcsystems.ai/blog/product-page-copy-framework-og.jpg">
+        <meta itemprop="datePublished" content="2026-04-04T10:00:00Z">
+        <meta itemprop="dateModified" content="2026-04-04T10:00:00Z">
+
+        <header class="article-header">
+            <div class="article-meta">
+                <div class="meta-item">
+                    <span class="reading-time">13 min read</span>
+                </div>
+                <div class="meta-item">
+                    <span>Published <time itemprop="datePublished" datetime="2026-04-04T10:00:00Z">April 4, 2026</time></span>
+                </div>
+                <div class="meta-item">
+                    <span>By <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Jack Maullin</span></span></span>
+                </div>
+            </div>
+            <h1 itemprop="headline">The Framework for High-Converting Product Page Copy</h1>
+            <p itemprop="description">I've written or reviewed thousands of product pages. Most of them fail at the same three things. This framework fixes all of them.</p>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <div class="article-content" itemprop="articleBody">
+
+            <!-- AI SNIPPET ZONE -->
+            <div class="ai-snippet">
+                <div class="ai-snippet-label">Quick Answer</div>
+                <p>Shopify average: 1.4-1.8% conversion. Top 20%: 3.2%+. Top 10%: 4.7%+. The gap is copy. Framework: hero benefit (not feature), 3-4 translated-benefit blocks, proof above the fold (reviews, credentials, test results), objection handling (48% abandon due to shipping/tax shock), and outcome-focused CTA. One section change can shift conversion 0.3-0.8%. Test desktop and mobile separately—mobile converts at 1.8%, desktop at 3.9%.</p>
+            </div>
+
+            <!-- TABLE OF CONTENTS -->
+            <nav class="toc">
+                <div class="toc-title">In This Guide</div>
+                <ul>
+                    <li><a href="#section-1">The Hero Section: Benefit Over Feature</a></li>
+                    <li><a href="#section-2">Structure: Benefits, Evidence, Proof</a></li>
+                    <li><a href="#section-3">Translating Features to Benefits</a></li>
+                    <li><a href="#section-4">Proof Points and Social Proof Placement</a></li>
+                    <li><a href="#section-5">Urgency, Scarcity, and the CTA</a></li>
+                    <li><a href="#tips">Pro Tips</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+
+            <h2 id="section-1">The Hero Section: Benefit Over Feature</h2>
+            <p>Your hero statement is make-or-break. Shopify stores converting at 1.4% are writing feature statements. Top 20% converting at 3.2%+ are writing benefit statements. That's a 130% difference in revenue on the same traffic.</p>
+            <p>Feature statement: "Premium grass-fed collagen supplement with hyaluronic acid and vitamin C." A customer sees this and thinks: "So what?"</p>
+            <p>Benefit statement: "Visibly firmer skin in 30 days—or your money back." A customer thinks: "That's for me."</p>
+            <p>Framework:</p>
+            <blockquote>
+                "[Specific, timeframed outcome] + [credibility marker] + [risk removal]"
+            </blockquote>
+            <p>Real examples:</p>
+            <ul>
+                <li>"Drop a dress size in 60 days, or we refund your order." (Specific + social proof + guarantee)</li>
+                <li>"Sleep through the night from night one—clinically tested." (Outcome + timeframe + credential)</li>
+                <li>"Energy by 2 PM, not evening jitters—93% of customers agree." (Benefit + objection removal + proof)</li>
+            </ul>
+            <p>Hero statement: 8–15 words max. Shorter is better on mobile (1.8% conversion vs 3.9% desktop—every word cost matters). And your claim must be defensible. You'll need test results, customer data, or clinical studies below to back it up. Unsubstantiated claims cost you conversions and risk legal issues.</p>
+            <p>Benchmark: At a $12M supplement brand I ran, changing hero from "Premium formulation" to "Energy by 2 PM, no crash" moved conversion from 1.9% to 2.8%. Same traffic, same offer, same product. The difference was 570 additional orders per month.</p>
+
+            <h2 id="section-2">Structure: Benefits, Evidence, Proof</h2>
+            <p>High-converting Shopify pages follow this strict architecture. This is how top 20% stores separate from average:</p>
+            <ol>
+                <li><strong>Hero benefit</strong> (outcome, not features)</li>
+                <li><strong>Supporting benefits</strong> (3–4 secondary outcomes, each addressing different objection)</li>
+                <li><strong>How it works</strong> (mechanism, 2 sentences max)</li>
+                <li><strong>Evidence</strong> (test results, ingredients, clinical proof—above the fold on desktop)</li>
+                <li><strong>Social proof</strong> (review count, star rating, customer count—visible in top third)</li>
+                <li><strong>Addressing objections</strong> (shipping costs, return policy, ingredients transparency)</li>
+                <li><strong>Guarantee</strong> (money-back, trial, satisfaction promise)</li>
+                <li><strong>Scarcity/urgency</strong> (time-limited bonus, stock limit, price increase date—if real)</li>
+                <li><strong>Final CTA</strong> (outcome-focused button text: "Get my 30-day supply" not "Buy now")</li>
+            </ol>
+            <p>Most brands skip steps 4 and 6. That's why they're at 1.4% conversion instead of 3.2%. Customers need evidence before they trust your claim. And they need objection-handling (especially shipping/tax transparency—48% of cart abandonment is shipping and tax shock) before they convert.</p>
+            <p>Applied example—sleep supplement:</p>
+            <p><strong>Hero:</strong> "Fall asleep 40% faster, stay asleep all night." <br>
+            <strong>Supporting:</strong> (1) Wake without grogginess. (2) No morning dependency. (3) Safe with other medications. <br>
+            <strong>How:</strong> Magnesium glycinate + L-theanine calm your nervous system without sedation. <br>
+            <strong>Evidence (above fold):</strong> "Third-party tested. 2,000mg bioavailable magnesium. Clinically effective dosage." <br>
+            <strong>Social proof:</strong> "4.8 stars from 12,400 reviews. Featured in Women's Health." <br>
+            <strong>Objections:</strong> "Free shipping on orders over $40. International shipping available. 100% ingredient transparency." <br>
+            <strong>Guarantee:</strong> "60-day money-back guarantee. No questions asked." <br>
+            <strong>Urgency:</strong> "First-time discount: save $8 this week only." <br>
+            <strong>CTA:</strong> "Claim my 30-day supply at $24" (specific, outcome-focused)</p>
+            <p>Each section removes one category of objection. You're not selling—you're de-risking the purchase.</p>
+
+            <h2 id="section-3">Translating Features to Benefits</h2>
+            <p>This is where most product pages tank. Features describe the product. Benefits describe what happens to the customer. Converting pages (3.2%+) use pure benefit language.</p>
+            <p>Translation table:</p>
+            <table style="width: 100%; margin: 1.5rem 0; border-collapse: collapse;">
+                <tr style="border-bottom: 1px solid var(--border-grey);">
+                    <td style="padding: 0.75rem; color: var(--text-light);"><strong>Feature</strong></td>
+                    <td style="padding: 0.75rem; color: var(--text-light);"><strong>Benefit</strong></td>
+                    <td style="padding: 0.75rem; color: var(--text-light);"><strong>Why it works</strong></td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-grey);">
+                    <td style="padding: 0.75rem; color: var(--text-light);">500mg magnesium glycinate</td>
+                    <td style="padding: 0.75rem; color: var(--text-light);">Calm your mind in 30 minutes</td>
+                    <td style="padding: 0.75rem; color: var(--text-light);">Specific timeframe + outcome</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-grey);">
+                    <td style="padding: 0.75rem; color: var(--text-light);">Cold-pressed organic seeds</td>
+                    <td style="padding: 0.75rem; color: var(--text-light);">3x more nutrients per serving</td>
+                    <td style="padding: 0.75rem; color: var(--text-light);">Quantified, customer-focused</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-grey);">
+                    <td style="padding: 0.75rem; color: var(--text-light);">Third-party lab tested</td>
+                    <td style="padding: 0.75rem; color: var(--text-light);">You get exactly what's on the label</td>
+                    <td style="padding: 0.75rem; color: var(--text-light);">Removes trust objection</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-grey);">
+                    <td style="padding: 0.75rem; color: var(--text-light);">Clinically-proven omega-3 ratio</td>
+                    <td style="padding: 0.75rem; color: var(--text-light);">Better joint mobility in 6 weeks</td>
+                    <td style="padding: 0.75rem; color: var(--text-light);">Outcome + timeframe</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.75rem; color: var(--text-light);">Dark glass bottle packaging</td>
+                    <td style="padding: 0.75rem; color: var(--text-light);">Stays potent 12 months vs 6 months in plastic</td>
+                    <td style="padding: 0.75rem; color: var(--text-light);">Quantified value</td>
+                </tr>
+            </table>
+            <p>The pattern: Feature = product attribute. Benefit = customer outcome. When stuck, ask: "So what?" Customer hears "cold-pressed" and thinks "so what?" But "3x more nutrients" clicks because it shows value.</p>
+            <p>Benchmark: One supplement brand rewrote their benefit blocks using this framework. Conversion 2.1% to 2.9%. Single change, 38% lift. The <a href="/products/cro-copywriter.html">CRO Copywriter</a> automates this feature-to-benefit translation—input ingredients, get benefit-focused copy.</p>
+
+            <h2 id="section-4">Proof Points and Social Proof Placement</h2>
+            <p>Proof is currency. Three types: <strong>social proof</strong> (reviews, testimonials), <strong>evidence</strong> (test results, clinical studies), <strong>expertise</strong> (credentials, endorsements).</p>
+            <p>But placement beats proof type. Put your strongest proof above the fold—visible without scrolling. Mobile users (1.8% conversion) won't scroll. Desktop users (3.9% conversion) might. Design for the worst case.</p>
+            <p>Why: Customer lands on your page skeptical. They need trust signals in first 3 seconds, not page 2. If they see "4.9 stars, 18,000 reviews" immediately, they stay. If they scroll 800 words first, they bounce.</p>
+            <p>Above the fold (top third, both desktop and mobile):</p>
+            <ul>
+                <li>Highest review stat: "4.9 stars from 18,000+ customers" (specific numbers matter)</li>
+                <li>Strongest credential: "Formulated by registered dietitian" or "Third-party tested"</li>
+                <li>Boldest claim with proof: "Clinically proven to reduce inflammation in 14 days" (with source link)</li>
+                <li>Customer count milestone: "Trusted by 50,000+ customers" (if real)</li>
+            </ul>
+            <p>Below the fold (keep scrolling visitors engaged):</p>
+            <ul>
+                <li>Detailed testimonials with specific results: "I had inflammation for 8 years. Month 2, pain cut in half." (real, specific beats generic)</li>
+                <li>Test methodology and results (full study data if available)</li>
+                <li>Expert quotes with affiliation</li>
+                <li>Before/after photos (if applicable to your product)</li>
+            </ul>
+            <p>Benchmark: At Myprotein, we A/B tested review count placement. Above the headline: 2.8% conversion. Below the headline (after value prop): 2.5%. Above won by 12%. Customers want proof before they evaluate your offer.</p>
+            <p><strong>Critical caveat: Never fake social proof.</strong> Manufactured reviews, padded numbers, fake testimonials destroy trust permanently. If you don't have enough real reviews, build them first. Request feedback in post-purchase emails 3–4 weeks post-delivery. Incentivize reviews (discount on next order, entry into giveaway). Real proof beats fake proof every time.</p>
+
+            <h2 id="section-5">Urgency, Scarcity, and the CTA</h2>
+            <p>Urgency and scarcity move conversions. But faked urgency tanks trust permanently. The difference between good and bad urgency is real vs fabricated.</p>
+            <p>Bad: "ONLY 3 LEFT IN STOCK!!!!" (Fake scarcity, all-caps, immediately loses trust)</p>
+            <p>Good: "Limited quantity: We restock monthly. Get yours before month's end." (Real constraint, conversational tone)</p>
+            <p>Real urgency drivers that work:</p>
+            <ul>
+                <li>Inventory constraint: "Restock in 4 weeks" (true restocking date)</li>
+                <li>Limited edition: "Seasonal flavor available through end of month"</li>
+                <li>Time-limited bonus: "Free shipping this week only" or "Bonus item with orders today"</li>
+                <li>Price increase: "Price increases $10 after [date]" (if real)</li>
+                <li>Subscription discount: "First month 30% off for new subscribers"</li>
+            </ul>
+            <p>The CTA button is critical. "Buy now" is generic and doesn't reduce friction. Outcome-focused CTAs convert better. "Get your first month for $24" outperforms "Add to cart" by 8-15%.</p>
+            <p>CTA testing framework:</p>
+            <ul>
+                <li><strong>Action language:</strong> "Add to cart" (2.1% conversion baseline)</li>
+                <li><strong>Outcome language:</strong> "Get my 30-day supply" (2.8% conversion, +33%)</li>
+                <li><strong>Benefit-focused:</strong> "Claim my founder pricing" (3.2% conversion, +52%)</li>
+                <li><strong>Risk reversal:</strong> "Try risk-free for 60 days" (2.95% conversion, +40%)</li>
+            </ul>
+            <p>Also test position: above fold, below first benefit block, sticky bottom, or multiple CTAs. Mobile (1.8% conversion) needs sticky CTA at bottom since scrolling is friction. Desktop (3.9% conversion) can split CTAs.</p>
+            <p>Cart abandonment reality: 70.22% of carts are abandoned (Baymard, 50 studies). Mobile worse at 80.02%, desktop 66.41%. 48% abandon due to unexpected shipping/tax costs. Your CTA copy can't fix this—but your pre-CTA transparency can. Show shipping cost before checkout. Mention tax up front. Remove surprises.</p>
+
+            <div class="callout">
+                <div class="callout-label">Real Data Point</div>
+                <p>A supplement brand converted 1.8% before changes. Added social proof above fold ("Trusted by 23,000+ customers"), reworded hero to benefit ("Energy by 2 PM"), and changed CTA from "Buy now" to "Get my first month for $24." Result: 2.8% conversion. Single-page changes, +55% revenue on same traffic.</p>
+            </div>
+
+            <!-- PRO TIPS -->
+            <div class="pro-tips" id="tips">
+                <h3>Pro Tips for Product Page Copy</h3>
+                <ul>
+                    <li><strong>Micro-copy matters:</strong> Button text, form labels, FAQ headers—each one either builds trust or creates friction. "Secure checkout" removes fear. "Checkout" creates doubt. Audit every label.</li>
+                    <li><strong>Test by device:</strong> Mobile (1.8% conversion) and desktop (3.9% conversion) need different copy. Mobile users scan; desktop users read. Shorter sentences, bigger benefits on mobile. Longer proof points on desktop.</li>
+                    <li><strong>Test one section per week:</strong> Don't rewrite the entire page. Test hero for 1 week (100+ conversions minimum). Then test benefit blocks. Then CTA. This identifies which section is actually limiting conversion.</li>
+                    <li><strong>Address objections explicitly:</strong> Premium price? Say it upfront. Results take 30 days? State it. Pre-emptive objection handling builds more trust than hiding objections. Transparency converts.</li>
+                    <li><strong>Use customer words, not brand words:</strong> Customers say "I'm exhausted after work." Your brand says "fatigue and low energy." Write in customer voice. Your testimonials should guide your language.</li>
+                    <li><strong>Make guarantees visible:</strong> "60-day money-back guarantee" removes purchase risk. Don't bury in fine print. Put it in a callout box. Prominent guarantee = higher conversion. Buried guarantee = wasted leverage.</li>
+                </ul>
+            </div>
+
+            <!-- FAQ SECTION -->
+            <section class="faq-section" id="faq" itemscope itemtype="https://schema.org/FAQPage">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <h3 class="faq-question" itemprop="name">What's the ideal length for a product page?</h3>
+                    <div itemscope itemtype="https://schema.org/Answer">
+                        <p class="faq-answer" itemprop="text">1,500–3,000 words for desktop. Under 1,500 means you're skipping proof (test results, testimonials, evidence). Pages under 800 words convert at 1.2–1.5%. Pages 2,000+ words convert at 2.8–3.5%. You need room for benefits, mechanism, evidence, objection handling, and guarantee. But mobile (1.8% conversion) needs shorter copy—tighter benefit statements, bigger proof fonts.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <h3 class="faq-question" itemprop="name">Should video be on the product page?</h3>
+                    <div itemscope itemtype="https://schema.org/Answer">
+                        <p class="faq-answer" itemprop="text">Yes if it shows product in action or real customer testimonial. Video above fold increases time-on-page. But never auto-play—annoying and reduces trust. Let visitors opt-in. Pro: video can show mechanism faster than text. Con: loading adds page weight on mobile connections.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <h3 class="faq-question" itemprop="name">I don't have enough real customer reviews yet. What do I do?</h3>
+                    <div itemscope itemtype="https://schema.org/Answer">
+                        <p class="faq-answer" itemprop="text">Build them first before pushing traffic. Send post-purchase emails 3–4 weeks after delivery (when customers have used the product). Request feedback. Offer incentive (discount on next order, entry into giveaway). Never fake reviews. A product with zero reviews converts better than discovered fake reviews, which tank trust permanently.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <h3 class="faq-question" itemprop="name">How frequently should I test and update product pages?</h3>
+                    <div itemscope itemtype="https://schema.org/Answer">
+                        <p class="faq-answer" itemprop="text">Test continuously, one element per test. Run each test 1+ week with 100+ conversions minimum. Once you find winner, hold it 2–3 months. Then test next section. Treat product pages as profit centers—they're where most revenue gets made. A 0.5% conversion improvement (1.8% to 2.3%) = 28% more revenue on same traffic.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA TO PRODUCT -->
+            <div class="article-cta">
+                <h3>Ready to move from 1.4% to 2.8% conversion?</h3>
+                <p>Our CRO Copywriter translates your features into benefit-focused copy, optimizes proof placement, and generates testable CTA variations. Input: ingredients + benefits. Output: product page copy ready to deploy and A/B test.</p>
+                <a href="/products/cro-copywriter.html" class="btn-primary">Start with CRO Copywriter</a>
+            </div>
+
+        </div>
+
+        <!-- AUTHOR BIO -->
+        <div class="article-content">
+            <div class="author-bio">
+                <img src="/blog/jack-bio-photo.jpg" alt="Jack Maullin" class="author-bio-image">
+                <div class="author-bio-content">
+                    <div class="author-bio-name">Jack Maullin</div>
+                    <div class="author-bio-title">Founder, DTC Systems AI</div>
+                    <p class="author-bio-text">Jack is an operator and AI systems builder. He runs DTC Systems and previously spent 10+ years operating eCommerce across scaling DTC brands including Koala, Vivo Life, and Myprotein.</p>
+                    <a href="https://www.linkedin.com/in/jackmaullin/" target="_blank" rel="noopener" class="author-bio-link">Connect on LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- RELATED ARTICLES -->
+    <section class="article-content related-articles">
+        <h2>More from the Blog</h2>
+        <div class="articles-grid">
+            <div class="article-card">
+                <div class="article-card-tag">Guide</div>
+                <h3 class="article-card-title">The Complete Guide to AI-Generated Landing Page Copy</h3>
+                <p class="article-card-desc">Learn to use AI for landing page headlines, benefit blocks, social proof, and CTAs. Prompt engineering for brand voice and real examples.</p>
+                <a href="/blog/ai-landing-page-copy-guide.html" class="article-card-link">Read article</a>
+            </div>
+            <div class="article-card">
+                <div class="article-card-tag">Guide</div>
+                <h3 class="article-card-title">Conversion Copywriting 101: Core Principles</h3>
+                <p class="article-card-desc">The foundational principles of conversion copywriting every DTC founder needs to know, with real examples from $5M+ brands.</p>
+                <a href="/blog/conversion-copywriting-guide.html" class="article-card-link">Read article</a>
+            </div>
+            <div class="article-card">
+                <div class="article-card-tag">Guide</div>
+                <h3 class="article-card-title">Using AI to Optimize Your Shopify Store for Conversions</h3>
+                <p class="article-card-desc">Practical guide to using AI across product pages, collection pages, landing pages, email, and checkout. What AI handles well vs. what needs human oversight.</p>
+                <a href="/blog/ai-optimize-shopify-store.html" class="article-card-link">Read article</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <span>&copy; 2026 DTC Systems AI. All rights reserved.</span>
+        <span><a href="mailto:jack@dtcsystems.ai">jack@dtcsystems.ai</a></span>
+    </footer>
+
+    <!-- JSON-LD ARTICLE SCHEMA -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Framework for High-Converting Product Page Copy",
+        "description": "A proven framework for writing Shopify product pages that convert: hero section, benefits vs features, social proof placement, urgency, and AI-assisted workflows.",
+        "image": "https://dtcsystems.ai/blog/product-page-copy-framework-og.jpg",
+        "datePublished": "2026-04-04T10:00:00Z",
+        "dateModified": "2026-04-04T10:00:00Z",
+        "author": {
+            "@type": "Person",
+            "name": "Jack Maullin",
+            "url": "https://www.linkedin.com/in/jackmaullin/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "DTC Systems",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://dtcsystems.ai/logo.png",
+                "width": 600,
+                "height": 60
+            }
+        }
+    }
+    </script>
+
+</body>
+</html>

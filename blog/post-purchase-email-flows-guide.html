@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Post-Purchase Email Flows: The Complete Setup Guide for DTC — DTC Systems Blog</title>
+    <meta name="google-site-verification" content="pVAF_b_D_OD7kkCEykHRVfeBVmUybDz_ndGkcC-pO7U" />
+    <meta name="description" content="Full post-purchase email sequence framework—from order confirmation through retention. AI-personalized flows that increase repeat purchase rate 25-40%.">
+    <meta name="canonical" href="https://dtcsystems.ai/blog/post-purchase-email-flows-guide.html">
+    <meta property="og:title" content="AI Post-Purchase Email Flows: The Complete Setup Guide for DTC">
+    <meta property="og:description" content="Full post-purchase email sequence framework—from order confirmation through retention. AI-personalized flows that increase repeat purchase rate 25-40%.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dtcsystems.ai/blog/post-purchase-email-flows-guide.html">
+    <meta property="og:image" content="https://dtcsystems.ai/blog/post-purchase-email-flows-guide-og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Post-Purchase Email Flows: The Complete Setup Guide for DTC">
+    <meta name="twitter:description" content="Full post-purchase email sequence framework—from order confirmation through retention. AI-personalized flows that increase repeat purchase rate 25-40%.">
+    <meta name="twitter:image" content="https://dtcsystems.ai/blog/post-purchase-email-flows-guide-og.jpg">
+    <meta property="article:published_time" content="2026-04-04T10:00:00Z">
+    <meta property="article:modified_time" content="2026-04-04T10:00:00Z">
+    <meta property="article:author" content="Jack Maullin">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --charcoal: #141414;
+            --dark-grey: #1a1a1a;
+            --mid-grey: #2a2a2a;
+            --border-grey: #333333;
+            --text-muted: #888888;
+            --text-light: #cccccc;
+            --white: #f5f5f5;
+            --gold: #c9a84c;
+            --gold-hover: #d4b85c;
+            --gold-dim: rgba(201, 168, 76, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAV */
+        nav {
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 3rem;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-grey);
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--gold);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            transition: background 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-hover);
+        }
+
+        /* BACK TO BLOG */
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+        }
+
+        .back-link::before {
+            content: '\2190 ';
+        }
+
+        /* BREADCRUMBS */
+        .breadcrumbs {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumbs a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--gold);
+        }
+
+        /* ARTICLE HEADER */
+        .article-header {
+            max-width: 720px;
+            margin: 0 auto 3rem;
+            padding: 0 2rem;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* MAIN CONTENT */
+        .article-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* AI SNIPPET BOX */
+        .ai-snippet {
+            background: var(--charcoal);
+            border-left: 4px solid var(--gold);
+            padding: 1.5rem;
+            margin: 2.5rem 0;
+            border-radius: 2px;
+        }
+
+        .ai-snippet-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .ai-snippet p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--white);
+        }
+
+        /* TABLE OF CONTENTS */
+        .toc {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 1.5rem;
+            margin: 2.5rem 0;
+            border-radius: 2px;
+        }
+
+        .toc-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .toc a:hover {
+            color: var(--gold);
+        }
+
+        /* ARTICLE TEXT */
+        .article-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+            scroll-margin-top: 100px;
+        }
+
+        .article-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.75rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+            color: var(--text-light);
+            scroll-margin-top: 100px;
+        }
+
+        .article-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .article-content em {
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        .article-content a {
+            color: var(--gold);
+            text-decoration: underline;
+            text-decoration-color: rgba(201, 168, 76, 0.4);
+            text-underline-offset: 3px;
+            transition: all 0.2s ease;
+        }
+
+        .article-content a:hover {
+            color: var(--gold-hover);
+            text-decoration-color: var(--gold);
+        }
+
+        /* LISTS */
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            margin-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        /* BLOCKQUOTES */
+        .article-content blockquote {
+            border-left: 4px solid var(--gold);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            color: var(--text-light);
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* CODE BLOCKS */
+        .article-content code {
+            background: var(--charcoal);
+            padding: 0.2rem 0.4rem;
+            border-radius: 2px;
+            font-size: 0.9em;
+            color: var(--gold);
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 1.5rem;
+            border-radius: 2px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: var(--text-light);
+        }
+
+        /* CALLOUT BOXES */
+        .callout {
+            background: var(--charcoal);
+            border-left: 4px solid var(--gold);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 2px;
+        }
+
+        .callout-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .callout p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* PRO TIPS SECTION */
+        .pro-tips {
+            background: linear-gradient(135deg, var(--charcoal), rgba(201, 168, 76, 0.05));
+            border: 1px solid var(--border-grey);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border-radius: 2px;
+        }
+
+        .pro-tips h3 {
+            margin-top: 0;
+            color: var(--gold);
+        }
+
+        .pro-tips ul {
+            margin-left: 1.5rem;
+        }
+
+        .pro-tips li {
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+        }
+
+        /* FAQ SECTION */
+        .faq-section {
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-grey);
+            border-bottom: 1px solid var(--border-grey);
+        }
+
+        .faq-section h2 {
+            margin-top: 0;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* CTA BOX */
+        .article-cta {
+            background: var(--charcoal);
+            border: 1px solid var(--gold);
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            border-radius: 2px;
+        }
+
+        .article-cta h3 {
+            margin-top: 0;
+            color: var(--white);
+        }
+
+        .article-cta p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--gold);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-hover);
+            transform: translateY(-1px);
+        }
+
+        /* AUTHOR BIO */
+        .author-bio {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 2rem;
+            margin: 3rem 0;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            border-radius: 2px;
+        }
+
+        .author-bio-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 1px solid var(--border-grey);
+        }
+
+        .author-bio-content {
+            flex-grow: 1;
+        }
+
+        .author-bio-name {
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-bio-title {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .author-bio-text {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .author-bio-link {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            transition: opacity 0.2s ease;
+        }
+
+        .author-bio-link:hover {
+            opacity: 0.8;
+        }
+
+        .author-bio-link::after {
+            content: ' \2192';
+        }
+
+        /* RELATED ARTICLES */
+        .related-articles {
+            margin: 3rem 0;
+            padding: 2rem 0 0;
+            border-top: 1px solid var(--border-grey);
+        }
+
+        .related-articles h2 {
+            margin-top: 0;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .article-card {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s ease;
+            border-radius: 2px;
+        }
+
+        .article-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .article-card-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .article-card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            color: var(--white);
+        }
+
+        .article-card-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .article-card-link {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: opacity 0.2s ease;
+        }
+
+        .article-card-link:hover {
+            opacity: 0.8;
+        }
+
+        .article-card-link::after {
+            content: ' \2192';
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 2rem 3rem;
+            border-top: 1px solid var(--border-grey);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: var(--gold);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .article-header {
+                padding: 0 1.5rem;
+            }
+
+            .article-content {
+                padding: 0 1.5rem;
+            }
+
+            .article-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.4rem;
+            }
+
+            .article-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .author-bio {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .author-bio-image {
+                margin: 0 auto;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 0.75rem;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="/" class="logo">DTC Systems<span>.</span></a>
+        <a href="/blog" class="nav-cta">Read Blog</a>
+    </nav>
+
+    <!-- BREADCRUMBS & BACK -->
+    <div class="article-content">
+        <a href="/blog" class="back-link">Back to blog</a>
+        <div class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
+                <meta itemprop="position" content="1">
+            </span>
+            &nbsp;/&nbsp;
+            <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="/blog"><span itemprop="name">Blog</span></a>
+                <meta itemprop="position" content="2">
+            </span>
+            &nbsp;/&nbsp;
+            <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name">AI Post-Purchase Email Flows: The Complete Setup Guide for DTC</span>
+                <meta itemprop="position" content="3">
+            </span>
+        </div>
+    </div>
+
+    <!-- ARTICLE HEADER -->
+    <article itemscope itemtype="https://schema.org/Article">
+        <meta itemprop="author" content="Jack Maullin">
+        <meta itemprop="publisher" content="DTC Systems">
+        <meta itemprop="headline" content="AI Post-Purchase Email Flows: The Complete Setup Guide for DTC">
+        <meta itemprop="description" content="Full post-purchase email sequence framework—from order confirmation through retention. AI-personalized flows that increase repeat purchase rate 25-40%.">
+        <meta itemprop="image" content="https://dtcsystems.ai/blog/post-purchase-email-flows-guide-og.jpg">
+        <meta itemprop="datePublished" content="2026-04-04T10:00:00Z">
+        <meta itemprop="dateModified" content="2026-04-04T10:00:00Z">
+
+        <header class="article-header">
+            <div class="article-meta">
+                <div class="meta-item">
+                    <span class="reading-time">13 min read</span>
+                </div>
+                <div class="meta-item">
+                    <span>Published <time itemprop="datePublished" datetime="2026-04-04">April 4, 2026</time></span>
+                </div>
+                <div class="meta-item">
+                    <span>By <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Jack Maullin</span></span></span>
+                </div>
+            </div>
+            <h1 itemprop="headline">AI Post-Purchase Email Flows: The Complete Setup Guide for DTC</h1>
+            <p itemprop="description">Your post-purchase email sequence is where customer lifetime value is built. A properly orchestrated flow can increase repeat purchase rate by 25-40% and email revenue per subscriber by 35%. Here's how I build them at scale.</p>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <div class="article-content" itemprop="articleBody">
+
+            <!-- AI SNIPPET ZONE (First 100 words) -->
+            <div class="ai-snippet-label">Quick Answer</div>
+                <p>Email flows generate 41% of total email revenue from just 5.3% of sends. Post-purchase flows: 217% higher open rates, 500% higher click rates, 90% higher ROI than standard campaigns. Structure: 6-8 emails over 60 days (order confirmation, shipping+education, review request, replenishment reminder, complementary upsell, winback if dormant). AI personalizes timing and messaging by product category. Well-built Klaviyo flow programs contribute 30-40% of customer lifetime value. Result: 35% increase in email revenue per subscriber, 28% increase in repeat purchase rate, 40% reduction in unsubscribe rate. For a $10M brand, that's $1M-1.2M in additional recurring revenue.</p>
+            </div>
+
+            <!-- TABLE OF CONTENTS -->
+            <nav class="toc">
+                <div class="toc-title">In This Guide</div>
+                <ul>
+                    <li><a href="#section-1">The Post-Purchase Email Sequence Architecture</a></li>
+                    <li><a href="#section-2">Email 1: Order Confirmation & Transactional Messaging</a></li>
+                    <li><a href="#section-3">Email 2-3: Shipping and Pre-Arrival Messaging</a></li>
+                    <li><a href="#section-4">Email 4: Review Request and Social Proof Generation</a></li>
+                    <li><a href="#section-5">Email 5-7: Replenishment, Upsell, and Retention</a></li>
+                    <li><a href="#tips">Pro Tips for Implementation</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+
+            <h2 id="section-1">The Post-Purchase Email Sequence Architecture</h2>
+
+            <p>Most DTC brands send one post-purchase email: "Thanks for your order." That's leaving 30-40% of potential LTV on the table. The data is compelling: email flows generate 41% of total email revenue from just 5.3% of sends. Post-purchase emails show 217% higher open rates and 500% higher click rates than standard campaigns. A properly built post-purchase program contributes 30-40% of customer lifetime value.</p>
+
+            <p>A high-performing post-purchase flow is a series of emails, each designed to accomplish one specific objective. The structure spans 60 days:</p>
+
+            <ul>
+                <li><strong>Days 0-1:</strong> Order confirmation with tracking and value reinforcement</li>
+                <li><strong>Days 2-4:</strong> Shipping notification with product education and usage tips</li>
+                <li><strong>Days 5-10:</strong> Review request with targeted incentive (15-20% review rate)</li>
+                <li><strong>Days 14-30:</strong> Replenishment reminder (timed to product consumption pattern)</li>
+                <li><strong>Days 20-35:</strong> Complementary upsell (paired product or bundle)</li>
+                <li><strong>Days 45-60:</strong> Winback with higher incentive if dormant 45+ days</li>
+            </ul>
+
+            <p>This structure accomplishes four goals: (1) confirm order and reduce buyer's remorse, (2) educate customers on product usage (increases satisfaction by 40%), (3) generate reviews and social proof, (4) drive repeat purchase through timely reminders and targeted offers.</p>
+
+            <h3>Timing is Everything: Repeat Purchase Windows</h3>
+
+            <p>Email frequency is the single biggest mistake I see. Most brands either over-email (driving unsubscribes above 0.5%) or under-email (missing the repeat purchase window). Repeat purchase intent peaks at days 5-14 for consumables (supplements, skincare) and days 20-45 for durables (apparel, tools). That's not random—that's when consumption/usage cycles complete. Your sequence should align with product-specific windows, not a generic template.</p>
+
+            <p>AI learns from your data: customer repurchase history by product type, consumption patterns, purchase frequency. It adjusts email timing accordingly. High-value customers can receive more emails. New customers get educational focus. Dormant customers get re-engagement. The result: unsubscribe rates drop 40% because messaging is relevant to each customer's state.</p>
+
+            <h2 id="section-2">Email 1: Order Confirmation & Transactional Messaging</h2>
+
+            <p>This email serves two purposes: confirm the order and delight the customer with care and clarity.</p>
+
+            <h3>The Anatomy of a High-Performing Order Confirmation</h3>
+
+            <p><strong>Subject line:</strong> Keep it informational. "Your Order #12345 is Confirmed" beats "Woohoo! You're Going to Love This."</p>
+
+            <p><strong>Header section:</strong> Express immediate gratitude and restate the order total. Reduce anxiety about the purchase decision by reminding them of the value.</p>
+
+            <p><strong>Order details:</strong> Show what they ordered, quantity, and expected delivery date. This is functional but also builds anticipation. "Your [Product] arrives by Friday, May 10th."</p>
+
+            <p><strong>Next steps:</strong> If tracking is available, provide the link. If not, tell them when they'll get it. "Tracking updates will arrive in the next 2 hours via email."</p>
+
+            <p><strong>Value reinforcement:</strong> Use this email to remind them why they made the right choice. "You've got the ingredients for 30 smoothies—that's $2.50/serving versus $8-12 at retail." This combats buyer's remorse.</p>
+
+            <p><strong>Bonus offer (optional):</strong> Some brands use the order confirmation to offer a secondary incentive: "Add product X to your order for 20% off" (only if they haven't checked out yet). This increases AOV by 12-18%.</p>
+
+            <h2 id="section-3">Email 2-3: Shipping and Pre-Arrival Messaging</h2>
+
+            <p>These emails create touchpoints during the delivery window and set context for the product when it arrives.</p>
+
+            <h3>Email 2: Shipping Notification (Day 2-3)</h3>
+
+            <p>When the product ships, send tracking immediately. Subject: "Your order is on its way! Tracking inside."</p>
+
+            <p>Most brands stop here. I go further: use this email to educate. If you're shipping a supplement, include usage instructions, timing recommendations, and expected results timeline. This reduces support tickets and increases utilization (customers who use the product properly have higher repeat purchase rates).</p>
+
+            <p>Include the tracking link, estimated delivery date, and a one-sentence value prop: "You're about to receive [Product]—designed for [Benefit]. Here's how to get the most out of it." Then provide actionable guidance.</p>
+
+            <h3>Email 3: Pre-Arrival Product Context (Day 5-8)</h3>
+
+            <p>This email arrives 2-3 days before delivery. Subject: "Your [Product] arrives soon—here's what to expect."</p>
+
+            <p>Use this email to build anticipation and set usage expectations. For consumables, explain proper storage. For apparel, explain the fit and material. For digital products, explain how to access. This pre-arrival context dramatically increases customer satisfaction and reduces return rates (for physical products) or churn (for subscription products).</p>
+
+            <p>AI can personalize this based on product type: supplement users get usage timing, apparel customers get fit guidance, skincare customers get routine recommendations.</p>
+
+            <h2 id="section-4">Email 4: Review Request and Social Proof Generation</h2>
+
+            <p>This is the review request email, sent 7-10 days post-delivery. Timing is critical: wait until the customer has had time to use the product but before they forget the experience.</p>
+
+            <h3>The Framework That Gets 15-20% Review Rates</h3>
+
+            <p>Most review request emails are generic: "Please leave a review." That gets 3-5% review rates. Here's the approach that gets 15-20%:</p>
+
+            <p><strong>Subject:</strong> Make it about them, not your business. "What's been your [Product] experience so far?" beats "Leave us a review!"</p>
+
+            <p><strong>Opening:</strong> Ask a specific question that gets them thinking about their experience. "Have you noticed [specific benefit]?" This primes them to think about positive outcomes.</p>
+
+            <p><strong>Review incentive:</strong> Offer something valuable. "$5 off your next order" or "Free shipping on your next purchase" works better than "Enter to win a prize." The incentive should be immediate and guaranteed, not probabilistic.</p>
+
+            <p><strong>Social proof callout:</strong> Tell them reviews matter. "Since we launched, 89% of customers who've tried [Product] have recommended it to a friend. Your feedback helps us understand why."</p>
+
+            <p><strong>Easy CTA:</strong> Provide a direct review link. Make it one-click if possible. "Click here to share your experience" with a clear button.</p>
+
+            <h3>Post-Review Follow-Up</h3>
+
+            <p>AI can segment customers: those who left reviews vs. those who didn't. Non-reviewers get a second request 14 days later with a lower incentive. Reviewers get a thank-you email with additional value: "Thanks for the review! Here's 10% off your next order." This reinforces the behavior.</p>
+
+            <h2 id="section-5">Email 5-7: Replenishment, Upsell, and Retention</h2>
+
+            <p>These emails drive the repeat purchase behavior that multiplies customer lifetime value.</p>
+
+            <h3>Email 5: Replenishment Reminder (Day 20-30)</h3>
+
+            <p>For consumable products, this is critical. Calculate when they'll likely run out based on product type and usage rate. For a supplement with 30 servings, assume 1 serving per day—remind them to reorder around day 25-35.</p>
+
+            <p>Subject: "Time to restock [Product]? Here's 15% off your next order."</p>
+
+            <p>Make the CTA easy: "Reorder your last purchase" (auto-populate the product and quantity). This removes friction. Most customers will repurchase the same product, so why make them search?</p>
+
+            <p>AI learns from behavior: if the customer's purchase window was 40 days, remind them at day 35 next time. If they haven't reordered after 45 days, escalate to email 6 (winback).</p>
+
+            <h3>Email 6: Upsell Complementary Product (Day 25-35)</h3>
+
+            <p>While they're thinking about replenishment, introduce a complementary product they don't own. "Customers who bought [Product 1] also benefited from [Product 2]. Get both for 20% off."</p>
+
+            <p>AI should recommend based on purchase history and category affinity. If they bought a collagen supplement, recommend an MSM product. If they bought a skincare starter kit, recommend a serum. The recommendation should feel smart and relevant, not random.</p>
+
+            <p>Frame as a bundle: "The [Product 1 + Product 2] Combo—Designed to Work Together." This justifies the recommendation and increases perceived value.</p>
+
+            <h3>Email 7: Winback Campaign (Day 45-60)</h3>
+
+            <p>If the customer hasn't repurchased 45+ days after their first order and you have consumption data showing they should need a reorder by now, they're at churn risk.</p>
+
+            <p>Subject: "We miss you—here's what's new [and 25% off to return]."</p>
+
+            <p>This email accomplishes two things: (1) show what's new (new products, new research, new testimonials), (2) provide a strong incentive to return. The discount is higher because they're higher-risk.</p>
+
+            <p>Make the offer time-bound to create urgency: "This 25% discount expires Friday." This drives decision-making.</p>
+
+            <div class="pro-tips" id="tips">
+                <h3>Pro Tips for Implementation</h3>
+                <ul>
+                    <li><strong>Personalize every email:</strong> Use customer name, product name, and personalized recommendations. Generic flows convert at 40% the rate of personalized flows.</li>
+                    <li><strong>Segment by product category:</strong> Consumables need different timing than durables. Supplements are replenished monthly; apparel is replenished quarterly. Adjust timing to match consumption patterns.</li>
+                    <li><strong>Use AI to generate copy variants:</strong> Generate 3-4 subject line variations, 2-3 body copy versions. Test them on 20% of traffic first, then scale the winner.</li>
+                    <li><strong>Monitor unsubscribe rate:</strong> If unsubscribe rate jumps above 0.5% of opens, you're emailing too frequently. Reduce email frequency or improve relevance.</li>
+                    <li><strong>Track email revenue per subscriber:</strong> Calculate (email revenue / subscribing customers) monthly. This tells you if your sequence is getting better. Target: 15-25% of total customer lifetime value should come from post-purchase emails.</li>
+                </ul>
+            </div>
+
+            <section class="faq-section" id="faq" itemscope itemtype="https://schema.org/FAQPage">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <h3 class="faq-question" itemprop="name">How much revenue do post-purchase emails generate in 2026?</h3>
+                    <div itemscope itemtype="https://schema.org/Answer">
+                        <p class="faq-answer" itemprop="text">Post-purchase emails generate 15-25% of total customer lifetime value for average brands, 30-40% for optimized programs (Klaviyo reference). Email flows generate 41% of revenue from 5.3% of sends. A well-built post-purchase program increasing repeat purchase rate by 30% adds $15-40 of LTV per customer. For a brand acquiring 100K customers/year at $130 CAC, that's $1.5M-4M in additional revenue. ROI on email platform: typically 12-18 month payback with ongoing 35%+ revenue uplift.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <h3 class="faq-question" itemprop="name">Should post-purchase flows be personalized by customer segment?</h3>
+                    <div itemscope itemtype="https://schema.org/Answer">
+                        <p class="faq-answer" itemprop="text">Absolutely. Segment by: (1) New customer - education-focused, (2) Repeat customer - promotion-focused, (3) High-value (top 10%) - exclusive offers, (4) Dormant 45+ days - re-engagement with higher incentive. Segmentation lifts engagement by 30-50% and repeat purchase rate by 15-25%. Most brands send identical sequences to all customers—that's leaving money on the table.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <h3 class="faq-question" itemprop="name">What email frequency avoids unsubscribes?</h3>
+                    <div itemscope itemtype="https://schema.org/Answer">
+                        <p class="faq-answer" itemprop="text">Consumables: 6-8 emails over 60 days (1-2 per week). Durables: 4-5 emails over 60 days (1 per 2 weeks). Monitor unsubscribe rate—if above 0.5% of opens, reduce frequency or improve relevance. High-performing sequences: 0.15-0.3% unsubscribe rate. The key: align frequency to product replenishment cycle. If your consumable is replenished monthly, your sequence should be front-loaded to days 1-20, not evenly distributed.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <h3 class="faq-question" itemprop="name">How do I calculate when to send replenishment emails?</h3>
+                    <div itemscope itemtype="https://schema.org/Answer">
+                        <p class="faq-answer" itemprop="text">Formula: (Product Quantity ÷ Daily Usage) - 7-day buffer = Replenishment Reminder Day. Example: 30-serving supplement ÷ 1 serving/day = 30 days usage. Remind on day 23 (7-day buffer for delivery). AI learns actual usage from repeat purchase data: if customers repurchase on day 25 on average, it reminds on day 18. This dramatically improves repeat purchase rate (15-25% improvement) compared to generic reminder timing.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA TO PRODUCT -->
+            <div class="article-cta">
+                <h3>Ready to build AI-powered post-purchase flows?</h3>
+                <p>The Post-Purchase Flow Builder generates complete 60-day email sequences with AI personalization. Increase repeat purchase rate 25-40% and email revenue per subscriber 35%+.</p>
+                <a href="/products/post-purchase-flow-builder.html" class="btn-primary">Explore Flow Builder</a>
+            </div>
+
+        </div>
+
+        <!-- AUTHOR BIO -->
+        <div class="article-content">
+            <div class="author-bio">
+                <img src="/blog/jack-bio-photo.jpg" alt="Jack Maullin" class="author-bio-image">
+                <div class="author-bio-content">
+                    <div class="author-bio-name">Jack Maullin</div>
+                    <div class="author-bio-title">Founder, DTC Systems AI</div>
+                    <p class="author-bio-text">Jack is an operator and AI systems builder. He runs DTC Systems and previously spent 10+ years operating eCommerce across scaling DTC brands including Koala, Vivo Life, and Myprotein—where he built post-purchase email systems that generated 20%+ of customer lifetime value across product portfolios doing $50M+ in annual revenue.</p>
+                    <a href="https://www.linkedin.com/in/jackmaullin/" target="_blank" rel="noopener" class="author-bio-link">Connect on LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- RELATED ARTICLES -->
+    <section class="article-content related-articles">
+        <h2>More from the Blog</h2>
+        <div class="articles-grid">
+            <div class="article-card">
+                <div class="article-card-tag">Guide</div>
+                <h3 class="article-card-title">How to Write Conversion Copy That Actually Works for DTC</h3>
+                <p class="article-card-desc">Frameworks for headlines, product descriptions, and CTAs that drive 4-6% conversion rates across landing pages and product pages.</p>
+                <a href="/blog/conversion-copywriting-guide.html" class="article-card-link">Read article</a>
+            </div>
+            <div class="article-card">
+                <div class="article-card-tag">Guide</div>
+                <h3 class="article-card-title">How AI is Transforming DTC eCommerce in 2026</h3>
+                <p class="article-card-desc">AI applications across acquisition, conversion, retention, and operations. Discover what's working now and how to build competitive advantage.</p>
+                <a href="/blog/ai-transforming-dtc-ecommerce.html" class="article-card-link">Read article</a>
+            </div>
+            <div class="article-card">
+                <div class="article-card-tag">Guide</div>
+                <h3 class="article-card-title">The DTC Growth Funnel: Building a Scalable Customer Acquisition Strategy</h3>
+                <p class="article-card-desc">Full-funnel thinking: from acquisition channels through conversion optimization and retention with AI integration at every stage.</p>
+                <a href="/blog/dtc-growth-funnel-strategy.html" class="article-card-link">Read article</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <span>&copy; 2026 DTC Systems AI. All rights reserved.</span>
+        <span><a href="mailto:jack@dtcsystems.ai">jack@dtcsystems.ai</a></span>
+    </footer>
+
+    <!-- JSON-LD ARTICLE SCHEMA -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AI Post-Purchase Email Flows: The Complete Setup Guide for DTC",
+        "description": "Full post-purchase email sequence framework—from order confirmation through retention. AI-personalized flows that increase repeat purchase rate 25-40%.",
+        "image": "https://dtcsystems.ai/blog/post-purchase-email-flows-guide-og.jpg",
+        "datePublished": "2026-04-04T10:00:00Z",
+        "dateModified": "2026-04-04T10:00:00Z",
+        "author": {
+            "@type": "Person",
+            "name": "Jack Maullin",
+            "url": "https://www.linkedin.com/in/jackmaullin/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "DTC Systems",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://dtcsystems.ai/logo.png",
+                "width": 600,
+                "height": 60
+            }
+        }
+    }
+    </script>
+
+</body>
+</html>

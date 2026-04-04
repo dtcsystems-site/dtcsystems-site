@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTC Systems Blog — AI Systems, Strategies & Tools for DTC Brands</title>
+    <meta name="google-site-verification" content="pVAF_b_D_OD7kkCEykHRVfeBVmUybDz_ndGkcC-pO7U" />
+    <meta name="description" content="Discover AI systems, landing page strategies, copywriting techniques, and tools that scale DTC brands. Learn from someone running these systems daily.">
+    <meta name="canonical" href="https://dtcsystems.ai/blog/">
+    <meta property="og:title" content="DTC Systems Blog">
+    <meta property="og:description" content="AI systems, strategies & tools that scale DTC brands.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dtcsystems.ai/blog/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "DTC Systems Blog",
+        "description": "AI systems, strategies & tools that scale DTC brands",
+        "url": "https://dtcsystems.ai/blog/",
+        "image": "https://dtcsystems.ai/og-image.jpg",
+        "publisher": {
+            "@type": "Organization",
+            "name": "DTC Systems",
+            "url": "https://dtcsystems.ai",
+            "logo": "https://dtcsystems.ai/logo.png"
+        }
+    }
+    </script>
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --charcoal: #141414;
+            --dark-grey: #1a1a1a;
+            --mid-grey: #2a2a2a;
+            --border-grey: #333333;
+            --text-muted: #888888;
+            --text-light: #cccccc;
+            --white: #f5f5f5;
+            --gold: #c9a84c;
+            --gold-hover: #d4b85c;
+            --gold-dim: rgba(201, 168, 76, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAV */
+        nav {
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 3rem;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-grey);
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--gold);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            transition: background 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-hover);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 6rem;
+            position: relative;
+            margin-top: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-grey), transparent);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            max-width: 800px;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 520px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* CONTENT SECTION */
+        .blog-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            position: relative;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        /* FEATURED ARTICLE */
+        .featured-article {
+            background: linear-gradient(135deg, var(--charcoal), rgba(201, 168, 76, 0.08));
+            border: 1px solid var(--gold);
+            padding: 3rem;
+            margin-bottom: 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .featured-label {
+            position: absolute;
+            top: -12px;
+            left: 30px;
+            background: var(--black);
+            padding: 0 0.5rem;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .featured-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .featured-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .featured-excerpt {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .featured-link {
+            display: inline-block;
+            padding: 0.7rem 1.75rem;
+            background: var(--gold);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .featured-link:hover {
+            background: var(--gold-hover);
+            transform: translateY(-1px);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, var(--mid-grey), var(--dark-grey));
+            border: 1px solid var(--border-grey);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* FILTERS */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+        }
+
+        .filter-pill {
+            padding: 0.6rem 1.25rem;
+            border: 1px solid var(--border-grey);
+            background: transparent;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .filter-pill:hover,
+        .filter-pill.active {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(201, 168, 76, 0.1);
+        }
+
+        /* ARTICLE GRID */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .article-card {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 1.75rem;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .article-category {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            background: rgba(201, 168, 76, 0.15);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .article-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            letter-spacing: -0.01em;
+        }
+
+        .article-excerpt {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 1.25rem;
+            font-weight: 300;
+        }
+
+        .article-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-grey);
+            padding-top: 1rem;
+        }
+
+        .article-date {
+            font-weight: 400;
+        }
+
+        .article-time {
+            font-weight: 400;
+        }
+
+        .article-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s ease;
+        }
+
+        .article-link:hover {
+            opacity: 0.8;
+        }
+
+        /* PAGINATION */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 3rem 0 2rem;
+        }
+
+        .pagination a,
+        .pagination span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border-grey);
+            background: transparent;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .pagination a:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(201, 168, 76, 0.1);
+        }
+
+        .pagination span.active {
+            border-color: var(--gold);
+            background: var(--gold);
+            color: var(--black);
+            font-weight: 600;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 2rem 3rem;
+            border-top: 1px solid var(--border-grey);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: var(--gold);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .featured-article {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            nav {
+                padding: 1rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .hero {
+                padding: 6rem 1.5rem 4rem;
+                min-height: 60vh;
+            }
+
+            .blog-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .featured-article {
+                padding: 1.5rem;
+            }
+
+            .featured-content h3 {
+                font-size: 1.4rem;
+            }
+
+            .filters {
+                gap: 0.5rem;
+            }
+
+            .filter-pill {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 0.75rem;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="/" class="logo">DTC Systems<span>.</span></a>
+        <a href="/#products" class="nav-cta">View Systems</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>The DTC Systems <em>Blog</em></h1>
+        <p>AI systems, landing page strategies, conversion copywriting, and tools that scale DTC brands. Learn from someone running these systems daily.</p>
+    </section>
+
+    <!-- FEATURED -->
+    <section class="blog-section">
+        <div style="position: relative; margin-bottom: 3rem;">
+            <div class="featured-label">Featured</div>
+            <div class="featured-article">
+                <div class="featured-content">
+                    <h3>How AI is Transforming DTC eCommerce in 2026</h3>
+                    <div class="featured-meta">
+                        <span class="article-date">Apr 4, 2026</span>
+                        <span>12 min read</span>
+                    </div>
+                    <p class="featured-excerpt">AI is automating DTC success across acquisition, conversion, retention, and operations. Discover what's working now and how to build a competitive AI-powered funnel.</p>
+                    <a href="/blog/ai-transforming-dtc-ecommerce.html" class="featured-link">Read Article</a>
+                </div>
+                <div class="featured-image">Featured Article Image</div>
+            </div>
+        </div>
+
+        <!-- FILTERS -->
+        <div>
+            <div class="section-label">Explore by Topic</div>
+            <div class="filters">
+                <button class="filter-pill active" data-filter="all">All Articles</button>
+                <button class="filter-pill" data-filter="ai-for-dtc">AI for DTC</button>
+                <button class="filter-pill" data-filter="ai-landing-pages">AI Landing Pages</button>
+                <button class="filter-pill" data-filter="cro-conversion-copy">CRO & Copy</button>
+                <button class="filter-pill" data-filter="post-purchase-retention">Post-Purchase</button>
+                <button class="filter-pill" data-filter="shopify-ai">Shopify + AI</button>
+                <button class="filter-pill" data-filter="dtc-growth-strategy">DTC Growth</button>
+                <button class="filter-pill" data-filter="ai-tools-comparisons">AI Tools</button>
+                <button class="filter-pill" data-filter="ai-content-automation">AI Content</button>
+            </div>
+        </div>
+
+        <!-- ARTICLES GRID -->
+        <div class="articles-grid">
+            <div class="article-card" data-category="ai-for-dtc">
+                <div class="article-category">AI for DTC</div>
+                <h3><a href="/blog/ai-personalization-dtc.html" class="article-link" style="color: var(--white); text-decoration: none;">AI Personalization for DTC: Drive Revenue Without More Traffic</a></h3>
+                <p class="article-excerpt">40% more revenue, 35% AOV increase, 31% of eCommerce from recommendations. How AI personalization drives growth without increasing ad spend.</p>
+                <div class="article-footer">
+                    <span class="article-date">Apr 4, 2026</span>
+                    <span class="article-time">12 min</span>
+                </div>
+            </div>
+
+            <div class="article-card" data-category="ai-landing-pages">
+                <div class="article-category">AI Landing Pages</div>
+                <h3><a href="/blog/build-ai-landing-pages-dtc.html" class="article-link" style="color: var(--white); text-decoration: none;">How to Build AI Landing Pages That Convert for DTC Brands</a></h3>
+                <p class="article-excerpt">Generate high-converting landing pages in minutes using AI. The exact framework for brand voice extraction, audience targeting, structure, and testing.</p>
+                <div class="article-footer">
+                    <span class="article-date">Apr 4, 2026</span>
+                    <span class="article-time">12 min</span>
+                </div>
+            </div>
+
+            <div class="article-card" data-category="ai-landing-pages">
+                <div class="article-category">AI Landing Pages</div>
+                <h3><a href="/blog/ai-landing-page-copy-guide.html" class="article-link" style="color: var(--white); text-decoration: none;">The Complete Guide to AI-Generated Landing Page Copy</a></h3>
+                <p class="article-excerpt">AI generates landing page copy 5-10x faster than manual writing. Real prompt templates, 2026 benchmarks, and DTC case studies inside.</p>
+                <div class="article-footer">
+                    <span class="article-date">Apr 4, 2026</span>
+                    <span class="article-time">12 min</span>
+                </div>
+            </div>
+
+            <div class="article-card" data-category="cro-conversion-copy">
+                <div class="article-category">CRO & Copy</div>
+                <h3><a href="/blog/conversion-copywriting-guide.html" class="article-link" style="color: var(--white); text-decoration: none;">How to Write Conversion Copy That Actually Works for DTC</a></h3>
+                <p class="article-excerpt">Proven frameworks for DTC conversion copy: headlines, product descriptions, CTAs, and social proof. The formulas that drive 4-6% conversion rates.</p>
+                <div class="article-footer">
+                    <span class="article-date">Apr 4, 2026</span>
+                    <span class="article-time">12 min</span>
+                </div>
+            </div>
+
+            <div class="article-card" data-category="cro-conversion-copy">
+                <div class="article-category">CRO & Copy</div>
+                <h3><a href="/blog/product-page-copy-framework.html" class="article-link" style="color: var(--white); text-decoration: none;">The Framework for High-Converting Product Page Copy</a></h3>
+                <p class="article-excerpt">Shopify stores average 1.4-1.8% conversion; top 20% hit 3.2%+. The section-by-section framework for product pages that actually sell.</p>
+                <div class="article-footer">
+                    <span class="article-date">Apr 4, 2026</span>
+                    <span class="article-time">12 min</span>
+                </div>
+            </div>
+
+            <div class="article-card" data-category="cro-conversion-copy">
+                <div class="article-category">CRO & Copy</div>
+                <h3><a href="/blog/cart-abandonment-email-copy-ai.html" class="article-link" style="color: var(--white); text-decoration: none;">Cart Abandonment Copy: AI-Generated Emails That Recover Sales</a></h3>
+                <p class="article-excerpt">70.22% of carts are abandoned. AI-generated cart emails average 50.5% open rate and 3.33% conversion. Complete framework using Claude and Klaviyo.</p>
+                <div class="article-footer">
+                    <span class="article-date">Apr 4, 2026</span>
+                    <span class="article-time">11 min</span>
+                </div>
+            </div>
+
+            <div class="article-card" data-category="post-purchase-retention">
+                <div class="article-category">Post-Purchase</div>
+                <h3><a href="/blog/post-purchase-email-flows-guide.html" class="article-link" style="color: var(--white); text-decoration: none;">AI Post-Purchase Email Flows: The Complete Setup Guide</a></h3>
+                <p class="article-excerpt">Full post-purchase email sequence framework from order confirmation through retention. AI-personalised flows that increase repeat purchase rate 25-40%.</p>
+                <div class="article-footer">
+                    <span class="article-date">Apr 4, 2026</span>
+                    <span class="article-time">12 min</span>
+                </div>
+            </div>
+
+            <div class="article-card" data-category="post-purchase-retention">
+                <div class="article-category">Post-Purchase</div>
+                <h3><a href="/blog/email-retention-strategy-ltv.html" class="article-link" style="color: var(--white); text-decoration: none;">How to Build an Email Retention Strategy That Increases LTV</a></h3>
+                <p class="article-excerpt">Email flows drive 41% of revenue from 5.3% of sends. Post-purchase flows see 40-45% open rates. The complete retention playbook for DTC brands.</p>
+                <div class="article-footer">
+                    <span class="article-date">Apr 4, 2026</span>
+                    <span class="article-time">12 min</span>
+                </div>
+            </div>
+
+            <div class="article-card" data-category="post-purchase-retention">
+                <div class="article-category">Post-Purchase</div>
+                <h3><a href="/blog/upsell-crosssell-flows-ai.html" class="article-link" style="color: var(--white); text-decoration: none;">Building Upsell and Cross-Sell Flows with AI Copywriting</a></h3>
+                <p class="article-excerpt">Post-purchase emails see 217% higher open rates and 500% higher click rates. Build AI-powered upsell flows for a 35% AOV lift.</p>
+                <div class="article-footer">
+                    <span class="article-date">Apr 4, 2026</span>
+                    <span class="article-time">11 min</span>
+                </div>
+            </div>
+
+            <div class="article-card" data-category="shopify-ai">
+                <div class="article-category">Shopify + AI</div>
+                <h3><a href="/blog/ai-optimize-shopify-store.html" class="article-link" style="color: var(--white); text-decoration: none;">Using AI to Optimize Your Shopify Store for Conversions</a></h3>
+                <p class="article-excerpt">5-layer AI optimization for Shopify: product copy, email flows, recommendations, search, and personalization. From 1.4% to 3.2%+ conversion rate.</p>
+                <div class="article-footer">
+                    <span class="article-date">Apr 4, 2026</span>
+                    <span class="article-time">11 min</span>
+                </div>
+            </div>
+
+            <div class="article-card" data-category="dtc-growth-strategy">
+                <div class="article-category">DTC Growth</div>
+                <h3><a href="/blog/dtc-growth-funnel-strategy.html" class="article-link" style="color: var(--white); text-decoration: none;">The DTC Growth Funnel: Building a Scalable Acquisition Strategy</a></h3>
+                <p class="article-excerpt">Full-funnel strategy for DTC brands: acquisition channels, landing page optimization, email capture, and post-purchase retention with AI at every stage.</p>
+                <div class="article-footer">
+                    <span class="article-date">Apr 4, 2026</span>
+                    <span class="article-time">12 min</span>
+                </div>
+            </div>
+
+            <div class="article-card" data-category="ai-tools-comparisons">
+                <div class="article-category">AI Tools</div>
+                <h3><a href="/blog/claude-vs-chatgpt-ecommerce.html" class="article-link" style="color: var(--white); text-decoration: none;">Claude vs ChatGPT for eCommerce Copywriting: Which Converts Better?</a></h3>
+                <p class="article-excerpt">Opus 4.6 vs GPT-5.4: tested on product descriptions, emails, landing pages, and ad copy. Claude wins on nuance, ChatGPT wins on speed.</p>
+                <div class="article-footer">
+                    <span class="article-date">Apr 4, 2026</span>
+                    <span class="article-time">12 min</span>
+                </div>
+            </div>
+
+            <div class="article-card" data-category="ai-tools-comparisons">
+                <div class="article-category">AI Tools</div>
+                <h3><a href="/blog/best-ai-tools-ecommerce-2026.html" class="article-link" style="color: var(--white); text-decoration: none;">Best AI Tools for DTC Ecommerce: Complete Roundup 2026</a></h3>
+                <p class="article-excerpt">Top AI tools for DTC: Claude, GPT, Replo, Unbounce, Shopify Magic, Klaviyo, and more. Real features, pricing, and what actually converts.</p>
+                <div class="article-footer">
+                    <span class="article-date">Apr 4, 2026</span>
+                    <span class="article-time">12 min</span>
+                </div>
+            </div>
+
+            <div class="article-card" data-category="ai-content-automation">
+                <div class="article-category">AI Content</div>
+                <h3><a href="/blog/ai-blog-content-dtc.html" class="article-link" style="color: var(--white); text-decoration: none;">Using AI to Create DTC Blog Content That Ranks and Converts</a></h3>
+                <p class="article-excerpt">31.3% of US uses generative AI search in 2026. Build blog content for Google AI Overview and Claude using pillar-cluster strategy.</p>
+                <div class="article-footer">
+                    <span class="article-date">Apr 4, 2026</span>
+                    <span class="article-time">11 min</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FILTER SCRIPT -->
+    <script>
+        document.querySelectorAll('.filter-pill').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.article-card').forEach(card => {
+                    card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'flex' : 'none';
+                });
+            });
+        });
+    </script>
+
+    <!-- FOOTER -->
+    <footer>
+        <div>&copy; 2026 DTC Systems. All rights reserved.</div>
+        <a href="mailto:hello@dtcsystems.ai">hello@dtcsystems.ai</a>
+    </footer>
+
+</body>
+</html>

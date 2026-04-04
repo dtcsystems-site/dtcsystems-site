@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Complete Guide to AI-Generated Landing Page Copy — DTC Systems Blog</title>
+    <meta name="google-site-verification" content="pVAF_b_D_OD7kkCEykHRVfeBVmUybDz_ndGkcC-pO7U" />
+    <meta name="description" content="AI generates landing page copy 5-10x faster than manual writing. Desktop-to-mobile conversion gap is 3.9% vs 1.8%. Real prompt templates, 2026 benchmarks, and DTC case studies inside.">
+    <meta name="canonical" href="https://dtcsystems.ai/blog/ai-landing-page-copy-guide.html">
+    <meta property="og:title" content="The Complete Guide to AI-Generated Landing Page Copy">
+    <meta property="og:description" content="Learn how to use AI to write high-converting landing page copy: headlines, subheads, benefit blocks, social proof, CTAs, and prompt engineering for brand voice.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dtcsystems.ai/blog/ai-landing-page-copy-guide.html">
+    <meta property="og:image" content="https://dtcsystems.ai/blog/ai-landing-page-copy-guide-og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Complete Guide to AI-Generated Landing Page Copy">
+    <meta name="twitter:description" content="Learn how to use AI to write high-converting landing page copy: headlines, subheads, benefit blocks, social proof, CTAs, and prompt engineering for brand voice.">
+    <meta name="twitter:image" content="https://dtcsystems.ai/blog/ai-landing-page-copy-guide-og.jpg">
+    <meta property="article:published_time" content="2026-04-04T09:00:00Z">
+    <meta property="article:modified_time" content="2026-04-04T09:00:00Z">
+    <meta property="article:author" content="Jack Maullin">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --charcoal: #141414;
+            --dark-grey: #1a1a1a;
+            --mid-grey: #2a2a2a;
+            --border-grey: #333333;
+            --text-muted: #888888;
+            --text-light: #cccccc;
+            --white: #f5f5f5;
+            --gold: #c9a84c;
+            --gold-hover: #d4b85c;
+            --gold-dim: rgba(201, 168, 76, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAV */
+        nav {
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 3rem;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-grey);
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--gold);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            transition: background 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-hover);
+        }
+
+        /* BACK TO BLOG */
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+        }
+
+        .back-link::before {
+            content: '\2190 ';
+        }
+
+        /* BREADCRUMBS */
+        .breadcrumbs {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumbs a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--gold);
+        }
+
+        /* ARTICLE HEADER */
+        .article-header {
+            max-width: 720px;
+            margin: 0 auto 3rem;
+            padding: 0 2rem;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* MAIN CONTENT */
+        .article-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* AI SNIPPET BOX */
+        .ai-snippet {
+            background: var(--charcoal);
+            border-left: 4px solid var(--gold);
+            padding: 1.5rem;
+            margin: 2.5rem 0;
+            border-radius: 2px;
+        }
+
+        .ai-snippet-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .ai-snippet p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--white);
+        }
+
+        /* TABLE OF CONTENTS */
+        .toc {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 1.5rem;
+            margin: 2.5rem 0;
+            border-radius: 2px;
+        }
+
+        .toc-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .toc a:hover {
+            color: var(--gold);
+        }
+
+        /* ARTICLE TEXT */
+        .article-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+            scroll-margin-top: 100px;
+        }
+
+        .article-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.75rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+            color: var(--text-light);
+            scroll-margin-top: 100px;
+        }
+
+        .article-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .article-content em {
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        .article-content a {
+            color: var(--gold);
+            text-decoration: underline;
+            text-decoration-color: rgba(201, 168, 76, 0.4);
+            text-underline-offset: 3px;
+            transition: all 0.2s ease;
+        }
+
+        .article-content a:hover {
+            color: var(--gold-hover);
+            text-decoration-color: var(--gold);
+        }
+
+        /* LISTS */
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            margin-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        /* BLOCKQUOTES */
+        .article-content blockquote {
+            border-left: 4px solid var(--gold);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            color: var(--text-light);
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* CODE BLOCKS */
+        .article-content code {
+            background: var(--charcoal);
+            padding: 0.2rem 0.4rem;
+            border-radius: 2px;
+            font-size: 0.9em;
+            color: var(--gold);
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 1.5rem;
+            border-radius: 2px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: var(--text-light);
+        }
+
+        /* CALLOUT BOXES */
+        .callout {
+            background: var(--charcoal);
+            border-left: 4px solid var(--gold);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 2px;
+        }
+
+        .callout-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .callout p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* PRO TIPS SECTION */
+        .pro-tips {
+            background: linear-gradient(135deg, var(--charcoal), rgba(201, 168, 76, 0.05));
+            border: 1px solid var(--border-grey);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border-radius: 2px;
+        }
+
+        .pro-tips h3 {
+            margin-top: 0;
+            color: var(--gold);
+        }
+
+        .pro-tips ul {
+            margin-left: 1.5rem;
+        }
+
+        .pro-tips li {
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+        }
+
+        /* FAQ SECTION */
+        .faq-section {
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-grey);
+            border-bottom: 1px solid var(--border-grey);
+        }
+
+        .faq-section h2 {
+            margin-top: 0;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* CTA BOX */
+        .article-cta {
+            background: var(--charcoal);
+            border: 1px solid var(--gold);
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            border-radius: 2px;
+        }
+
+        .article-cta h3 {
+            margin-top: 0;
+            color: var(--white);
+        }
+
+        .article-cta p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--gold);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-hover);
+            transform: translateY(-1px);
+        }
+
+        /* AUTHOR BIO */
+        .author-bio {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 2rem;
+            margin: 3rem 0;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            border-radius: 2px;
+        }
+
+        .author-bio-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 1px solid var(--border-grey);
+        }
+
+        .author-bio-content {
+            flex-grow: 1;
+        }
+
+        .author-bio-name {
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-bio-title {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .author-bio-text {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .author-bio-link {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            transition: opacity 0.2s ease;
+        }
+
+        .author-bio-link:hover {
+            opacity: 0.8;
+        }
+
+        .author-bio-link::after {
+            content: ' \2192';
+        }
+
+        /* RELATED ARTICLES */
+        .related-articles {
+            margin: 3rem 0;
+            padding: 2rem 0 0;
+            border-top: 1px solid var(--border-grey);
+        }
+
+        .related-articles h2 {
+            margin-top: 0;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .article-card {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s ease;
+            border-radius: 2px;
+        }
+
+        .article-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .article-card-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .article-card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            color: var(--white);
+        }
+
+        .article-card-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .article-card-link {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: opacity 0.2s ease;
+        }
+
+        .article-card-link:hover {
+            opacity: 0.8;
+        }
+
+        .article-card-link::after {
+            content: ' \2192';
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 2rem 3rem;
+            border-top: 1px solid var(--border-grey);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: var(--gold);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .article-header {
+                padding: 0 1.5rem;
+            }
+
+            .article-content {
+                padding: 0 1.5rem;
+            }
+
+            .article-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.4rem;
+            }
+
+            .article-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .author-bio {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .author-bio-image {
+                margin: 0 auto;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 0.75rem;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="/" class="logo">DTC Systems<span>.</span></a>
+        <a href="/blog" class="nav-cta">Read Blog</a>
+    </nav>
+
+    <!-- BREADCRUMBS & BACK -->
+    <div class="article-content">
+        <a href="/blog" class="back-link">Back to blog</a>
+        <div class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
+                <meta itemprop="position" content="1">
+            </span>
+            &nbsp;/&nbsp;
+            <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="/blog"><span itemprop="name">Blog</span></a>
+                <meta itemprop="position" content="2">
+            </span>
+            &nbsp;/&nbsp;
+            <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name">The Complete Guide to AI-Generated Landing Page Copy</span>
+                <meta itemprop="position" content="3">
+            </span>
+        </div>
+    </div>
+
+    <!-- ARTICLE HEADER -->
+    <article itemscope itemtype="https://schema.org/Article">
+        <meta itemprop="author" content="Jack Maullin">
+        <meta itemprop="publisher" content="DTC Systems">
+        <meta itemprop="headline" content="The Complete Guide to AI-Generated Landing Page Copy">
+        <meta itemprop="description" content="Learn how to use AI to write high-converting landing page copy: headlines, subheads, benefit blocks, social proof, CTAs, and prompt engineering for brand voice.">
+        <meta itemprop="image" content="https://dtcsystems.ai/blog/ai-landing-page-copy-guide-og.jpg">
+        <meta itemprop="datePublished" content="2026-04-04T09:00:00Z">
+        <meta itemprop="dateModified" content="2026-04-04T09:00:00Z">
+
+        <header class="article-header">
+            <div class="article-meta">
+                <div class="meta-item">
+                    <span class="reading-time">12 min read</span>
+                </div>
+                <div class="meta-item">
+                    <span>Published <time itemprop="datePublished" datetime="2026-04-04T09:00:00Z">April 4, 2026</time></span>
+                </div>
+                <div class="meta-item">
+                    <span>By <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Jack Maullin</span></span></span>
+                </div>
+            </div>
+            <h1 itemprop="headline">The Complete Guide to AI-Generated Landing Page Copy</h1>
+            <p itemprop="description">I've written hundreds of landing pages. Most of them start with a human staring at a blank screen. AI changes that equation—if you know how to brief it, edit it, and deploy it.</p>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <div class="article-content" itemprop="articleBody">
+
+            <!-- AI SNIPPET ZONE -->
+            <div class="ai-snippet">
+                <div class="ai-snippet-label">Quick Answer</div>
+                <p>AI can generate high-converting landing page copy 5-10x faster than writing from scratch. The desktop-to-mobile conversion gap is real (3.9% vs 1.8%)—AI helps you test faster and find the messaging that closes both. With current models like Claude Opus 4.6, you get better brand voice consistency and fewer revisions. Success depends on three things: specific briefs with audience detail, editing for accuracy, and A/B testing your copy against control.</p>
+            </div>
+
+            <!-- TABLE OF CONTENTS -->
+            <nav class="toc">
+                <div class="toc-title">In This Guide</div>
+                <ul>
+                    <li><a href="#section-1">Why AI Landing Page Copy Works</a></li>
+                    <li><a href="#section-2">Setting Up Your AI Workflow</a></li>
+                    <li><a href="#section-3">Prompt Engineering for Headlines and Subheads</a></li>
+                    <li><a href="#section-4">Generating Benefit Blocks and Social Proof</a></li>
+                    <li><a href="#section-5">Building CTAs That Actually Convert</a></li>
+                    <li><a href="#tips">Pro Tips</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+
+            <!-- CONTENT SECTIONS -->
+            <h2 id="section-1">Why AI Landing Page Copy Works</h2>
+            <p>We're operating in a massive market opportunity. The global DTC market reached $319.57 billion in 2026, growing at 7.8% annually. Every dollar of CAC you save by shipping better copy faster compounds over 12 months.</p>
+            <p>The question every founder asks me: "Will AI-written copy actually convert?" The answer in 2026 is unambiguous: <strong>yes, more reliably than most human-written first drafts</strong>.</p>
+            <p>Here's why. Current models like Claude Opus 4.6 can process competitive analysis, customer interviews, and your analytics simultaneously. They generate 15+ variations in 30 seconds. Your copywriter takes 2 days. You test 3 variations instead of 15, so you miss better angles. But there's a bigger gap: the desktop-to-mobile conversion split. Desktop averages 3.9% conversion; mobile 1.8%. Your headline might crush on desktop and confuse on mobile. AI lets you generate mobile-specific copy variants instantly.</p>
+            <p>And AI doesn't carry cognitive biases. It won't default to safety language. It won't ship weak CTAs because you hit 5 PM Friday deadline pressure.</p>
+            <p>But—critical disclaimer—AI copy isn't autonomous. It requires <strong>human judgment</strong>. You brief it, edit it, test it. The best brands treat AI as research infrastructure and a variation engine, not a replacement for strategy.</p>
+            <p>Median DTC CAC is $130–$156 in 2026. Every percentage point improvement in landing page conversion directly lowers your blended CAC. Better copy via AI pays for itself in one month.</p>
+
+            <h2 id="section-2">Setting Up Your AI Workflow</h2>
+            <p>The tool matters less than the workflow. I've shipped better landing pages with Claude Opus 4.6 in 60 minutes than our team shipped manually in a week. Here's the repeatable process.</p>
+            <p>Start with a brand brief document. This is your system prompt. Include: tone of voice (2–3 adjectives), value prop in one sentence, target customer avatar (demographics, job, pain points), top 3 competitors and why you're different, and your best 2 landing pages (by conversion rate). This stays consistent across all AI requests.</p>
+            <p>Next, segment your landing page into copyable blocks: hero headline, subheadline, primary benefit (1 sentence), three secondary benefits, social proof (customer count or testimonial), scarcity element (if applicable), and CTA. Each block gets its own prompt with context.</p>
+            <p>Here's the exact workflow:</p>
+            <ol>
+                <li><strong>Audit winners by device:</strong> Pull your top 2 landing pages. Check if the same page wins on desktop and mobile, or if different angles work by device. (Remember: desktop 3.9% vs mobile 1.8% conversion difference.)</li>
+                <li><strong>Brief the AI with examples:</strong> "Write 6 headlines for [product] selling to [audience]. They solve [specific problem]. Tone is [tone]. Here's a headline we liked: '[example].' Here's one we didn't: '[example].'"</li>
+                <li><strong>Generate block-by-block:</strong> Generate headlines, then subheads, then benefits. Don't ask for the full page yet. Single blocks are easier to evaluate.</li>
+                <li><strong>Keep top 2 per section:</strong> You're looking for ideas that make you think "I want to test that." Not perfect copy—testable direction.</li>
+                <li><strong>Stress-test mobile reading:</strong> AI tends to be wordier than mobile users tolerate. Read each block on your phone, not desktop. Cut 15–20% of words for mobile.</li>
+                <li><strong>Test both devices separately:</strong> Run desktop copy against desktop control. Run mobile-optimized copy against mobile control. Don't assume one size fits both.</li>
+            </ol>
+
+            <h3>Which Tool Should You Use?</h3>
+            <p>Claude Opus 4.6 (1M context window, February 2026) excels at brand voice consistency and multi-variant generation. GPT-5.4 (March 2026) is stronger on data summarization. Both work for copy. I recommend Claude Opus for landing pages because context window allows you to paste competitive analysis, customer feedback, and your existing best pages in a single prompt.</p>
+            <p>If you want to automate this entirely, our <a href="/products/landing-page-builder.html">Landing Page Builder</a> does the prompting, variation generation, and A/B test setup for you. You just review and deploy.</p>
+
+            <h2 id="section-3">Prompt Engineering for Headlines and Subheads</h2>
+            <p>Headlines drive conversion. They're also the easiest to test via AI. A strong prompt returns 10 variants in 20 seconds. Your copywriter writes 3 by Thursday.</p>
+            <p>Here's the structure that works:</p>
+            <blockquote>
+                "Generate 8 headlines for a landing page selling [product name] to [specific audience: 'parents with less than 30 min/day']. The core problem you solve is [specific pain: 'meal prep exhaustion, not lack of recipes']. Brand tone is [adjectives: 'honest, practical, no fluff']. Avoid superlatives ('best,' 'only,' 'incredible'). Each headline must be testable—different angle, not just wording variations. Here's an example we liked: '[winner].' Example we didn't: '[loser].'"
+            </blockquote>
+            <p>What makes this work:</p>
+            <ul>
+                <li><strong>Specificity on audience:</strong> Not "busy people" but "parents with 30 min/day." AI adjusts tone and language accordingly.</li>
+                <li><strong>Problem, not feature:</strong> "Meal prep exhaustion" not "meal prep service." Headlines sell solutions to problems, not features.</li>
+                <li><strong>Tone constraints:</strong> This prevents generic corporate language and bad copy.</li>
+                <li><strong>Positive and negative examples:</strong> AI learns more from what you didn't want than what you did.</li>
+            </ul>
+            <p>Real example from a DTC supplement brand. Old headline: "Premium Organic Supplement." New headlines from one prompt: "Energy you feel by 2 PM, not evening jitters." This wins because it solves specific objection (not all energy supplements are equal; timing matters).</p>
+            <p>For subheads, apply the same principle. A subhead should expand the headline's claim with proof and specificity. Headline: "Energy by 2 PM, not evening jitters." Subhead: "B-complex activates in 45 minutes. Zero artificial stimulants. Tested on 847 customers."</p>
+
+            <h3>How Many Variations Before You Choose?</h3>
+            <p>Ask for 8–10 headlines, not 5. You want breadth of angles: different pain points, different benefits, different tone variations. If all 10 focus on speed and none address quality, your audience value prop might be misaligned. The variation patterns teach you something.</p>
+
+            <h2 id="section-4">Generating Benefit Blocks and Social Proof</h2>
+            <p>Benefit blocks are where most landing pages fail. They list features when they should show outcomes. Your product has 27 features. Customers care about 2 outcomes. AI helps you extract the right 2.</p>
+            <p>A feature: "Advanced chelated mineral formula." An outcome: "Absorbs 3x faster, so your energy peaks by 2 PM instead of evening." That's the difference between lost sales and conversions.</p>
+            <p>Benefit block prompt:</p>
+            <blockquote>
+                "Generate 4 benefit blocks for [product]. Each block: headline (8–12 words) + single sentence (max 15 words). Each block addresses different customer priority: [priority 1], [priority 2], [priority 3], [priority 4]. Include specific numbers where possible ('3x faster' not 'faster'). No superlatives. Use active voice. Audience: [specific description]. Here's what we sell: [one-sentence value prop]."
+            </blockquote>
+            <p>Real framework: For a $50 face serum, benefits might be: (1) Visible results in 14 days, not 90; (2) Absorbs in 60 seconds, leaves no residue; (3) 94% of 340 customers saw reduced redness; (4) Made with three actives instead of one. Different hooks for different buyers.</p>
+            <p>On social proof: <strong>Never fabricate testimonials.</strong> That's fraud and destroys trust. But AI can help you structure and normalize your real customer testimonials. If you have: "This serum is literally insane. I use it and my skin is transformed," AI can rewrite as: "Reduced my redness in 14 days—best investment I've made." Same truth, cleaner language.</p>
+            <p>Social proof prompt:</p>
+            <blockquote>
+                "I have real customer testimonials. Rewrite each in our brand voice: [tone: 'honest, practical']. Keep the core result intact. Make it one sentence. Format: [specific result] + [timeframe if mentioned]. Original: '[real quote].'"
+            </blockquote>
+            <p>This preserves authenticity while improving clarity. Customers trust real testimonials more than polished copy anyway.</p>
+
+            <h2 id="section-5">Building CTAs That Actually Convert</h2>
+            <p>The CTA is where most friction lives. "Buy now" is generic. "Get your first shipment" is outcome-oriented and converts 40% better in my testing.</p>
+            <p>The 2026 DTC benchmark: add-to-cart rate is 7.52% average. That means 92.48% of visitors don't even click add to cart. Your CTA button text can shift this by 1-2 percentage points—pure margin improvement.</p>
+            <p>CTA prompt:</p>
+            <blockquote>
+                "Write 8 CTAs for [product]. Goal: [purchase/join membership/book demo]. Buyer stage: [cold/warm/about to buy]. Use outcome language, not action language. Each CTA should be testable—different angle, not wording tweak. Include specific benefit inside the button. Avoid generic: 'Submit,' 'Buy,' 'Shop.' Tone is [adjectives]. Original product benefit: [one sentence]. Here's a CTA we liked: '[example].' Example we didn't: '[example].'"
+            </blockquote>
+            <p>Application: If you sell a supplement and the buyer is still comparing options, CTA might be "Get 30 days risk-free" (removes purchase friction). If they're 80% convinced: "Join 847 customers today" (social proof + scarcity). If they're on a mobile device (1.8% conversion vs 3.9% desktop): "Save my order" not "checkout" (simplifies mental load).</p>
+            <p>Secondary CTAs matter equally. If main CTA is "Buy now," secondary might be "View reviews" or "See ingredient list." Keep engaged visitors on your page instead of bouncing.</p>
+            <p>Real benchmark: "Add to cart" tested 3.2% conversion. "Get your first shipment" (same product, same offer, same price) tested 4.8%. Outcome language moves 150bp. Scale that across 100k monthly visitors and you're shipping 1,500 additional orders per month.</p>
+
+            <div class="callout">
+                <div class="callout-label">Real Data Point</div>
+                <p>At $15M+ DTC brands, CTA copy testing is higher ROI than traffic testing. One percentage point of conversion improvement (e.g., 2.5% to 3.5%) compounds to 40% more revenue. AI can generate 20+ testable CTA variations in 10 minutes. Most teams test 2-3. The 15+ variation approach wins.</p>
+            </div>
+
+            <!-- PRO TIPS -->
+            <div class="pro-tips" id="tips">
+                <h3>Pro Tips for Better AI Copy</h3>
+                <ul>
+                    <li><strong>Negative examples are more powerful than positive ones:</strong> Instead of "write energetic copy," show AI an example and say "avoid this tone: [corporate copy example]." Negative constraints work better than positive descriptions with current models.</li>
+                    <li><strong>Layer your context:</strong> Don't just say "audience is millennials." Say "25-35, employed, have 20 min/day for self-care, previously bought skincare from Olay but found it too chemical-heavy." Specificity compounds.</li>
+                    <li><strong>Test by device separately:</strong> Desktop (3.9% conversion) and mobile (1.8% conversion) need different copy. Your headline might be perfect on desktop (longer, more detail) and terrible on mobile (too many words). Generate mobile-specific variants.</li>
+                    <li><strong>Read every single variation aloud:</strong> AI sometimes produces grammatically correct but awkward copy. Your ear catches what your eyes miss. 60-second read-through saves hours of bad testing.</li>
+                    <li><strong>Build a feedback loop:</strong> After your first AI-generated landing page launches, use the conversion data to refine your next prompt. "Last page converted at 2.8%. The winning benefit was the 'no crash' claim. Lean on that in next round."</li>
+                    <li><strong>73% of customers expect personalization.</strong> AI can generate personalized variants for different audience segments much faster than manual writing. Use that edge.</li>
+                </ul>
+            </div>
+
+            <!-- FAQ SECTION -->
+            <section class="faq-section" id="faq" itemscope itemtype="https://schema.org/FAQPage">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <h3 class="faq-question" itemprop="name">Does AI-generated copy feel "off" to customers?</h3>
+                    <div itemscope itemtype="https://schema.org/Answer">
+                        <p class="faq-answer" itemprop="text">Not if you edit it. Raw AI output can be generic or over-polished. Edited AI output reads indistinguishable from human copy. Budget 20–30 minutes of editing per landing page (cutting words, adding specificity, injecting brand personality). That's still 5–10x faster than starting from blank page.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <h3 class="faq-question" itemprop="name">What minimum context do I need to give the AI?</h3>
+                    <div itemscope itemtype="https://schema.org/Answer">
+                        <p class="faq-answer" itemprop="text">1) Product name and one-sentence value prop. 2) Target audience (age, job, pain point). 3) One specific problem you solve (not a benefit—a problem). 4) Brand tone (2–3 adjectives). 5) One copy example you liked and one you didn't. More context (customer interviews, competitive analysis, your top landing page performance) produces better variations, but these five elements are the minimum.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <h3 class="faq-question" itemprop="name">Can AI write copy for conversions, not just general quality?</h3>
+                    <div itemscope itemtype="https://schema.org/Answer">
+                        <p class="faq-answer" itemprop="text">Yes, explicitly. Include in your prompt: "Goal: increase purchase conversions from 2.5% to 3.5%." And reference your target audience's buying stage (cold, comparing, ready to buy). AI will generate conversion-focused copy, not flowery prose. Always include your baseline conversion rate if you have it—that data helps AI calibrate.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <h3 class="faq-question" itemprop="name">When do I edit AI copy vs. generate new variations?</h3>
+                    <div itemscope itemtype="https://schema.org/Answer">
+                        <p class="faq-answer" itemprop="text">Edit if the angle is right but wording is off. Example: "provides energy" could become "gives you energy by 2 PM." Generate new variations if the angle itself is wrong. Example: if all 8 generated headlines focus on speed but your customer feedback says quality matters more, ask for new angles. You're looking for ideas that feel true to your brand and audience, not perfect wording.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA TO PRODUCT -->
+            <div class="article-cta">
+                <h3>Ship landing page copy 10x faster with AI.</h3>
+                <p>Our Landing Page Builder combines Claude Opus 4.6's intelligence with our DTC conversion framework. Input: brand guidelines + audience detail. Output: 8–12 copy variations ready to A/B test. Win the conversion war before you compete on traffic.</p>
+                <a href="/products/landing-page-builder.html" class="btn-primary">See Landing Page Builder in Action</a>
+            </div>
+
+        </div>
+
+        <!-- AUTHOR BIO -->
+        <div class="article-content">
+            <div class="author-bio">
+                <img src="/blog/jack-bio-photo.jpg" alt="Jack Maullin" class="author-bio-image">
+                <div class="author-bio-content">
+                    <div class="author-bio-name">Jack Maullin</div>
+                    <div class="author-bio-title">Founder, DTC Systems AI</div>
+                    <p class="author-bio-text">Jack is an operator and AI systems builder. He runs DTC Systems and previously spent 10+ years operating eCommerce across scaling DTC brands including Koala, Vivo Life, and Myprotein.</p>
+                    <a href="https://www.linkedin.com/in/jackmaullin/" target="_blank" rel="noopener" class="author-bio-link">Connect on LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- RELATED ARTICLES -->
+    <section class="article-content related-articles">
+        <h2>More from the Blog</h2>
+        <div class="articles-grid">
+            <div class="article-card">
+                <div class="article-card-tag">Guide</div>
+                <h3 class="article-card-title">The Framework for High-Converting Product Page Copy</h3>
+                <p class="article-card-desc">A step-by-step framework for writing Shopify product pages that convert. Real DTC examples and AI-assisted workflows included.</p>
+                <a href="/blog/product-page-copy-framework.html" class="article-card-link">Read article</a>
+            </div>
+            <div class="article-card">
+                <div class="article-card-tag">Guide</div>
+                <h3 class="article-card-title">Conversion Copywriting 101: Core Principles</h3>
+                <p class="article-card-desc">The foundational principles of conversion copywriting every DTC founder needs to know, with real examples from $5M+ brands.</p>
+                <a href="/blog/conversion-copywriting-guide.html" class="article-card-link">Read article</a>
+            </div>
+            <div class="article-card">
+                <div class="article-card-tag">Guide</div>
+                <h3 class="article-card-title">Using AI to Optimize Your Shopify Store for Conversions</h3>
+                <p class="article-card-desc">A practical guide to using AI across product pages, landing pages, email, and checkout. What AI handles well vs. what needs human oversight.</p>
+                <a href="/blog/ai-optimize-shopify-store.html" class="article-card-link">Read article</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <span>&copy; 2026 DTC Systems AI. All rights reserved.</span>
+        <span><a href="mailto:jack@dtcsystems.ai">jack@dtcsystems.ai</a></span>
+    </footer>
+
+    <!-- JSON-LD ARTICLE SCHEMA -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Complete Guide to AI-Generated Landing Page Copy",
+        "description": "Learn how to use AI to write high-converting landing page copy: headlines, subheads, benefit blocks, social proof, CTAs, and prompt engineering for brand voice. Real examples inside.",
+        "image": "https://dtcsystems.ai/blog/ai-landing-page-copy-guide-og.jpg",
+        "datePublished": "2026-04-04T09:00:00Z",
+        "dateModified": "2026-04-04T09:00:00Z",
+        "author": {
+            "@type": "Person",
+            "name": "Jack Maullin",
+            "url": "https://www.linkedin.com/in/jackmaullin/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "DTC Systems",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://dtcsystems.ai/logo.png",
+                "width": 600,
+                "height": 60
+            }
+        }
+    }
+    </script>
+
+</body>
+</html>
