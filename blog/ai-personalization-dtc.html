@@ -452,12 +452,6 @@
             transform: translateY(-1px);
         }
 
-        .article-cta .btn-primary {
-            color: var(--black);
-            text-decoration: none;
-        }
-
-
         /* AUTHOR BIO */
         .author-bio {
             background: var(--charcoal);
@@ -522,9 +516,8 @@
 
         /* RELATED ARTICLES */
         .related-articles {
-            max-width: 900px;
-            margin: 3rem auto 0;
-            padding: 2rem 2rem 0;
+            margin: 3rem 0;
+            padding: 2rem 0 0;
             border-top: 1px solid var(--border-grey);
         }
 
@@ -775,7 +768,7 @@
                 <li><strong>Post-purchase email:</strong> "You bought X. Customers love X+Y." Sets up next purchase immediately (6x transaction rate, 122% ROI)</li>
                 <li><strong>Replenishment email:</strong> "Reorder your X. Here's complementary Y." Behavior-based trigger (320% more revenue)</li>
             </ul>
-            <p>Adding a "Frequently bought together" section is one of the simplest personalization wins. DTC brands commonly see 8-15% of total AOV lift from this single feature. Conservative implementation, massive ROI.</p>
+            <p>Benchmark: Vivo Life added "Frequently bought together." That one section = 12% of total AOV lift over 6 months. Conservative implementation, massive ROI.</p>
             <h3>AI Sophistication in Recommendations</h3>
             <p>AI learns context: Customer A buys X+Y, Customer B buys X+Z. Both bought X, but AI recommends different downstream products. Customer who browses 5 minutes (high intent) gets different recommendations than impulse buyer. High-LTV customers get premium recommendations; first-time buyers get lower-risk products. This intelligence separates top 10% brands from generic "top sellers" recommendations.</p>
 
@@ -836,8 +829,8 @@
             <p>Segmented frequency reduces unsubscribes by 30–40% and increases ROI from retention email by 20%+.</p>
 
             <div class="callout">
-                <div class="callout-label">What This Looks Like in Practice</div>
-                <p>A typical personalisation stack for a DTC brand includes: personalised product recommendations on product pages, in cart, and in post-purchase email. Audience-specific landing page variants. Segment-based email frequency. This is achievable in 30-50 hours of setup work, and the compound effect of personalisation across these touchpoints drives meaningful lifts in AOV, conversion rate, repeat purchase, and email engagement.</p>
+                <div class="callout-label">Real Data Point</div>
+                <p>A skincare brand implemented personalized product recommendations on product pages, in cart, and in post-purchase email. Deployed 3 audience-specific landing page variants. Updated email frequency by segment. Total effort: 40 hours of work. Results: AOV +18%, conversion rate +7%, repeat purchase rate +12%, email engagement +31%. Revenue impact: $480K additional in year 1.</p>
             </div>
 
             <!-- PRO TIPS -->
@@ -897,11 +890,37 @@
         <!-- AUTHOR BIO -->
         <div class="article-content">
             <div class="author-bio">
-                <img src="/jack-headshot.jpg" alt="Jack Maullin" class="author-bio-image">
+                <img src="/blog/jack-bio-photo.jpg" alt="Jack Maullin" class="author-bio-image">
                 <div class="author-bio-content">
                     <div class="author-bio-name">Jack Maullin</div>
                     <div class="author-bio-title">Founder, DTC Systems AI</div>
                     <p class="author-bio-text">Jack is an operator and AI systems builder. He runs DTC Systems and previously spent 10+ years operating eCommerce across scaling DTC brands including Koala, Vivo Life, and Myprotein.</p>
+                    <a href="https://www.linkedin.com/in/jackmaullin/" target="_blank" rel="noopener" class="author-bio-link">Connect on LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- RELATED ARTICLES -->
+    <section class="article-content related-articles">
+        <h2>More from the Blog</h2>
+        <div class="articles-grid">
+            <div class="article-card">
+                <div class="article-card-tag">Guide</div>
+                <h3 class="article-card-title">How to Build an Email Retention Strategy That Increases LTV</h3>
+                <p class="article-card-desc">Email retention from first purchase to loyal customer. Flow architecture, segmentation, AI personalization, and LTV benchmarks.</p>
+                <a href="/blog/email-retention-strategy-ltc.html" class="article-card-link">Read article</a>
+            </div>
+            <div class="article-card">
+                <div class="article-card-tag">Guide</div>
+                <h3 class="article-card-title">Using AI to Optimize Your Shopify Store for Conversions</h3>
+                <p class="article-card-desc">Practical guide to using AI across Shopify: product pages, email, landing pages, checkout. What AI handles well vs. human oversight.</p>
+                <a href="/blog/ai-optimize-shopify-store.html" class="article-card-link">Read article</a>
+            </div>
+            <div class="article-card">
+                <div class="article-card-tag">Guide</div>
+                <h3 class="article-card-title">The Framework for High-Converting Product Page Copy</h3>
+                <p class="article-card-desc">A proven framework for Shopify product pages: hero section, benefits vs features, social proof, urgency, and AI workflows.</p>
                 <a href="/blog/product-page-copy-framework.html" class="article-card-link">Read article</a>
             </div>
         </div>
@@ -910,7 +929,7 @@
     <!-- FOOTER -->
     <footer>
         <span>&copy; 2026 DTC Systems AI. All rights reserved.</span>
-        <span><a href="mailto:jack@dtcsystems.ai">jack@dtcsystems.ai</a></span>
+        <span><a href="/terms.html" style="margin-right:1.5rem">Terms &amp; Conditions</a><a href="mailto:jack@dtcsystems.ai">jack@dtcsystems.ai</a></span>
     </footer>
 
     <!-- JSON-LD ARTICLE SCHEMA -->
