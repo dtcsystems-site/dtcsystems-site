@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn how to calculate CAC, LTV, and profitability metrics for your DTC brand. Complete guide with formulas, benchmarks, and optimization strategies.">
+    <meta name="google-site-verification" content="pVAF_b_D_OD7kkCEykHRVfeBVmUybDz_ndGkcC-pO7U" />
+    <title>DTC Unit Economics: Calculating CAC, LTV, and Profitability | DTC Systems</title>
+
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --charcoal: #141414;
+            --dark-grey: #1a1a1a;
+            --mid-grey: #2a2a2a;
+            --border-grey: #333333;
+            --text-muted: #888888;
+            --text-light: #cccccc;
+            --white: #f5f5f5;
+            --gold: #c9a84c;
+            --gold-hover: #d4b85c;
+            --gold-dim: rgba(201, 168, 76, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            background-color: var(--black);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: var(--charcoal);
+            border-bottom: 1px solid var(--border-grey);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .nav-cta {
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--gold-hover);
+        }
+
+        /* Back link */
+        .back-link {
+            display: inline-block;
+            padding: 1rem 5%;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            padding: 0.5rem 5%;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .breadcrumbs a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--gold-hover);
+        }
+
+        /* Article Header */
+        .article-header {
+            padding: 3rem 5%;
+            background-color: var(--dark-grey);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .article-header h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .meta-item strong {
+            color: var(--white);
+        }
+
+        /* Main content wrapper */
+        .article-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
+
+        .article-content {
+            margin-bottom: 3rem;
+        }
+
+        .article-content h2 {
+            font-size: 1.75rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            border-bottom: 1px solid var(--border-grey);
+            padding-bottom: 0.75rem;
+        }
+
+        .article-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .article-content h3 {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--gold);
+        }
+
+        .article-content p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .article-content a:hover {
+            color: var(--gold-hover);
+            text-decoration: underline;
+        }
+
+        .article-content code {
+            background-color: var(--mid-grey);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--gold);
+        }
+
+        /* AI Snippet */
+        .ai-snippet {
+            background-color: var(--dark-grey);
+            border: 2px solid var(--gold);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 2rem 0;
+        }
+
+        .ai-snippet-label {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 0.25rem 0.75rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .ai-snippet p {
+            color: var(--white);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background-color: var(--mid-grey);
+            border-left: 4px solid var(--gold);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .toc-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .toc li {
+            margin-bottom: 0.75rem;
+        }
+
+        .toc a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .toc a:hover {
+            color: var(--gold);
+        }
+
+        /* Callout / Pro Tips */
+        .callout {
+            background-color: var(--mid-grey);
+            border-left: 4px solid var(--gold);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .callout-label {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 0.25rem 0.75rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .callout p {
+            color: var(--white);
+        }
+
+        .pro-tips {
+            background-color: var(--dark-grey);
+            border: 2px solid var(--gold);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 2rem 0;
+        }
+
+        .pro-tips h3 {
+            color: var(--gold);
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .pro-tips ul {
+            margin-left: 1.5rem;
+        }
+
+        .pro-tips li {
+            margin-bottom: 0.75rem;
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin: 3rem 0;
+        }
+
+        .faq-section h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-item {
+            background-color: var(--mid-grey);
+            border: 1px solid var(--border-grey);
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background-color: var(--dark-grey);
+            padding: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--white);
+            transition: background-color 0.2s;
+        }
+
+        .faq-question:hover {
+            background-color: var(--border-grey);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            padding: 1.25rem;
+            color: var(--text-light);
+            display: none;
+            background-color: var(--mid-grey);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-answer p {
+            margin-bottom: 0.75rem;
+        }
+
+        /* Article CTA */
+        .article-cta {
+            background-color: var(--gold-dim);
+            border: 2px solid var(--gold);
+            padding: 2rem;
+            border-radius: 6px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .article-cta h3 {
+            color: var(--gold);
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .article-cta p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 0.875rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--gold-hover);
+        }
+
+        /* Author Bio */
+        .author-bio {
+            background-color: var(--dark-grey);
+            border-left: 4px solid var(--gold);
+            padding: 2rem;
+            border-radius: 4px;
+            margin: 3rem 0;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .author-bio-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--gold-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 2rem;
+        }
+
+        .author-bio-content h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .author-bio-content p {
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .author-bio-content a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .author-bio-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Related Articles */
+        .related-articles {
+            margin: 3rem 0;
+        }
+
+        .related-articles h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .article-card {
+            background-color: var(--dark-grey);
+            border: 1px solid var(--border-grey);
+            border-radius: 6px;
+            padding: 1.5rem;
+            transition: border-color 0.2s, transform 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .article-card-category {
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .article-card h3 {
+            margin: 0.5rem 0 1rem 0;
+            color: var(--white);
+            font-size: 1.1rem;
+        }
+
+        .article-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: auto;
+            margin-bottom: 1rem;
+        }
+
+        .article-card a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .article-card a:hover {
+            color: var(--gold-hover);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--charcoal);
+            border-top: 1px solid var(--border-grey);
+            padding: 2rem 5%;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: var(--gold-hover);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 5%;
+            }
+
+            .article-header h1 {
+                font-size: 1.75rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .author-bio {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="/" class="logo">DTC Systems</a>
+        <a href="/blog" class="nav-cta">Read Blog</a>
+    </nav>
+
+    <!-- Back Link -->
+    <a href="/blog" class="back-link">← Back to Blog</a>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <a href="/">Home</a> / <a href="/blog">Blog</a> / <span>DTC Unit Economics</span>
+    </div>
+
+    <!-- Article Header -->
+    <header class="article-header">
+        <h1>DTC Unit Economics: Calculating CAC, LTV, and Profitability</h1>
+        <div class="article-meta">
+            <div class="meta-item">📅 <strong>April 7, 2026</strong></div>
+            <div class="meta-item">✍️ <strong>Jack Maullin</strong></div>
+            <div class="meta-item">⏱️ <strong>12 min read</strong></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="article-wrapper">
+        <!-- AI Snippet -->
+        <div class="ai-snippet">
+            <div class="ai-snippet-label">AI Snippet</div>
+            <p>DTC unit economics measure customer acquisition cost (CAC), lifetime value (LTV), and profitability. The LTV:CAC ratio benchmark is 3:1 or better. Average DTC CAC ranges from $45–$70, with payback periods under 12 months. Unit economics are the foundation of sustainable growth at DTC Systems and every other scaling brand.</p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <div class="toc-title">Table of Contents</div>
+            <ul>
+                <li><a href="#what-are-unit-economics">What Are DTC Unit Economics?</a></li>
+                <li><a href="#calculating-cac">Calculating Customer Acquisition Cost (CAC)</a></li>
+                <li><a href="#calculating-ltv">Calculating Lifetime Value (LTV)</a></li>
+                <li><a href="#ltv-cac-ratio">The LTV:CAC Ratio and Payback Period</a></li>
+                <li><a href="#contribution-margin">Contribution Margin and Unit Economics</a></li>
+                <li><a href="#improving-economics">How to Improve Your Unit Economics</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+
+        <!-- Article Content -->
+        <div class="article-content">
+            <h2 id="what-are-unit-economics">What Are DTC Unit Economics?</h2>
+            <p>Unit economics are the financial metrics that tell you whether your business makes money per customer. They're the difference between a brand growing sustainably and one burning cash while chasing vanity metrics.</p>
+
+            <p>I've run these systems at scaling DTC brands, and I can tell you: if you don't understand your unit economics, you don't understand your business. You might have beautiful product, massive top-line revenue, and zero path to profitability.</p>
+
+            <p>The three pillars of DTC unit economics are:</p>
+            <ul>
+                <li><strong>Customer Acquisition Cost (CAC)</strong> — what you spend to acquire each customer</li>
+                <li><strong>Lifetime Value (LTV)</strong> — total revenue you'll extract from that customer</li>
+                <li><strong>Contribution Margin</strong> — gross profit per customer after COGS and direct marketing spend</li>
+            </ul>
+
+            <p>These metrics let you answer the questions that actually matter: How many customers do I need to break even? What's my payback period? Can I scale profitably? These aren't nice-to-have analytics—they're survival metrics.</p>
+
+            <h3>Why Unit Economics Matter Now More Than Ever</h3>
+            <p>DTC has matured. The era of growth-at-all-costs has ended. Meta CPMs rose 15–22% in 2025. Customer acquisition is more expensive than it's ever been. Brands are competing harder for the same customers.</p>
+
+            <p>For scaling brands doing $10M–$50M in annual revenue, average EBITDA margins fell to 7.25%—a 27.29% decrease. The brands that survive this environment are the ones with tight, optimized unit economics. The ones that understand their numbers intimately.</p>
+
+            <h2 id="calculating-cac">Calculating Customer Acquisition Cost (CAC)</h2>
+            <p>CAC is simple in formula but deceptive in execution. Here's the basic formula:</p>
+
+            <p><code>CAC = Total Marketing Spend / Number of New Customers Acquired</code></p>
+
+            <p>Example: You spend $10,000 on Meta ads in a month and acquire 200 new customers. Your CAC is $50.</p>
+
+            <h3>The Hidden Complexity</h3>
+            <p>Where most brands go wrong is incomplete spend tracking. Your total marketing spend should include:</p>
+            <ul>
+                <li>Paid ads (Meta, Google, TikTok, etc.)</li>
+                <li>Influencer partnerships and affiliate commissions</li>
+                <li>Email marketing platform and automation costs (partial allocation)</li>
+                <li>Content creation for social and organic channels</li>
+                <li>In-house marketing salaries (allocated)</li>
+                <li>Agency fees</li>
+                <li>Creative production and photography</li>
+            </ul>
+
+            <p>Most brands only count paid ad spend. That's why they think their CAC is $45 when it's actually $75 once you account for everything.</p>
+
+            <h3>CAC by Industry Vertical</h3>
+            <p>CAC varies dramatically by category. Here's what you should benchmark against:</p>
+            <ul>
+                <li><strong>Fashion</strong> — $90–$120</li>
+                <li><strong>Beauty</strong> — $90–$130</li>
+                <li><strong>Pet Care</strong> — $68–$90</li>
+                <li><strong>Food &amp; Beverage</strong> — $53–$100</li>
+                <li><strong>General DTC average</strong> — $45–$70</li>
+            </ul>
+
+            <p>Fashion and beauty are expensive because they're saturated channels with high CPMs. Pet care and food tend to be lower because there's less competition and audiences are more engaged.</p>
+
+            <h3>The Rising CAC Problem</h3>
+            <p>CAC has increased 40–60% from 2023 to 2025 alone, and over 222% in the past 8 years. This isn't random. It's systematic: more brands chasing fewer customers on the same platforms, iOS privacy changes reducing tracking accuracy, and Meta's auction-based CPM model pricing everyone upward.</p>
+
+            <p>If your CAC isn't optimizing, you're losing. Your only options are to reduce it or increase your LTV.</p>
+
+            <h2 id="calculating-ltv">Calculating Lifetime Value (LTV)</h2>
+            <p>LTV is what you'll make from a customer over their entire relationship with your brand. Here's the foundational formula:</p>
+
+            <p><code>LTV = Average Order Value (AOV) × Purchase Frequency × Gross Margin × Customer Lifespan</code></p>
+
+            <p>Example: If your AOV is $75, customers buy 3 times per year, your gross margin is 55%, and you keep customers for 3 years on average, your LTV is:</p>
+            <p><code>LTV = $75 × 3 × 0.55 × 3 = $371.25</code></p>
+
+            <h3>The Repeat Customer Advantage</h3>
+            <p>Here's the dirty truth about DTC: 60% of DTC revenue comes from returning customers, yet most brands allocate 90% of their marketing budget to acquisition.</p>
+
+            <p>Loyal customers convert at 60–70% versus 5–20% for new prospects. Your repeat rate isn't just important—it's foundational to your economics. If you're not systematically building a repeat customer base, your unit economics will never work.</p>
+
+            <p>Average customer retention sits at 28.2% across DTC. That's... not great. It means you're replacing 72% of your customer base every period just to stay flat.</p>
+
+            <h3>The Components That Actually Drive LTV</h3>
+
+            <p><strong>1. Average Order Value (AOV)</strong><br>
+            This is gross revenue per transaction. The easiest lever to pull. Can you add a $15 upsell to 50% of orders? That adds $7.50 to AOV instantly. Can you bundle products? Cross-sell? These are CAC-free LTV improvements.</p>
+
+            <p><strong>2. Purchase Frequency</strong><br>
+            How often do customers buy? This is where retention strategy matters. One brand I worked with implemented a 6-week reorder email sequence and saw purchase frequency increase from 2.1 to 3.4 purchases per year. That's a 62% LTV increase with no change in margin or CAC.</p>
+
+            <p><strong>3. Gross Margin</strong><br>
+            For DTC, average ecommerce gross margin sits at 50–65%. This is COGS subtracted from revenue. If your margin is below 50%, you have a product problem, not a marketing problem. You can't acquire profitably at low margin.</p>
+
+            <p><strong>4. Customer Lifespan</strong><br>
+            How long does a customer stay engaged? Most DTC brands underestimate this. The median customer lifecycle for healthy DTC brands is 18–36 months, but strong retention programs can extend this to 4+ years.</p>
+
+            <h2 id="ltv-cac-ratio">The LTV:CAC Ratio and Payback Period</h2>
+            <p>This is the metric that ties everything together. Here's the formula:</p>
+
+            <p><code>LTV:CAC Ratio = LTV / CAC</code></p>
+
+            <p>The benchmark is 3:1 or better. That means for every dollar you spend acquiring a customer, you should make at least three dollars in lifetime profit.</p>
+
+            <p>If your LTV is $371 and your CAC is $60, your ratio is 6.2:1. You're underwriting profitable growth. If your LTV is $150 and your CAC is $75, you're at 2:1 and you're likely unprofitable once you factor in OPEX.</p>
+
+            <h3>Payback Period: The Profitability Clock</h3>
+            <p>LTV:CAC tells you the lifetime story. Payback period tells you the cash flow story. Here's the formula:</p>
+
+            <p><code>Payback Period (months) = CAC / (AOV × Gross Margin × Monthly Purchase Frequency)</code></p>
+
+            <p>Example: If CAC is $60, AOV is $75, gross margin is 55%, and monthly purchase frequency is 0.25 (one purchase per 4 months), then:</p>
+            <p><code>Payback Period = $60 / ($75 × 0.55 × 0.25) = $60 / $10.31 = 5.8 months</code></p>
+
+            <p>The benchmark is 12 months or less. If your payback period is 18 months, you're burning cash waiting to recover your acquisition investment. VC can sustain that. Bootstrapped DTC brands cannot.</p>
+
+            <h3>When the Ratio Breaks Down</h3>
+            <p>A 3:1 ratio is healthy, but it's not universally correct. A brand doing $100M+ in revenue can operate profitably at 2:1 because fixed overhead is spread across a massive base. A $2M brand needs 4:1 to stay alive.</p>
+
+            <p>The ratio also doesn't account for unit complexity. A $400 AOV luxury brand has different economics than a $30 AOV subscription brand. Use the ratio as a starting point, not a rule.</p>
+
+            <h2 id="contribution-margin">Contribution Margin and Unit Economics</h2>
+            <p>Here's where most brands get the calculation wrong. Contribution margin is the profit available after you subtract variable costs from revenue.</p>
+
+            <p><code>Contribution Margin = Revenue - COGS - Direct Marketing Spend</code></p>
+
+            <p>For DTC brands, median net margin sits at 3–10% after all costs. Let that sink in. Most DTC brands are operating on 3–10% net margin. That includes overhead, salaries, logistics, customer service—everything.</p>
+
+            <h3>The CM3 Metric</h3>
+            <p>For Shopify-powered DTC brands, there's a useful shorthand called CM3. It measures contribution margin as a percentage of revenue after covering customer acquisition, COGS, and basic fulfillment:</p>
+
+            <p><code>CM3 = (Revenue - COGS - CAC - Fulfillment Cost) / Revenue</code></p>
+
+            <p>Healthy Shopify DTC brands target a CM3 of 20–30%. This gives you breathing room for overhead and profit.</p>
+
+            <p>If your CM3 is below 15%, you have a fundamental unit economics problem. You're either overspending on acquisition, selling at too low a margin, or both.</p>
+
+            <h3>Median DTC Spend Patterns</h3>
+            <p>To benchmark yourself, here's what healthy DTC brands are spending:</p>
+            <ul>
+                <li><strong>Ad spend</strong> — 20–30% of revenue for scaling brands, 15–20% for mature brands</li>
+                <li><strong>Average spend per customer</strong> — $130–$156 in 2026</li>
+                <li><strong>Gross margin target</strong> — 50–65% for sustainable growth</li>
+            </ul>
+
+            <p>If you're above these benchmarks, you're either overspending or underpricjing. Either way, you need to optimize.</p>
+
+            <h2 id="improving-economics">How to Improve Your Unit Economics</h2>
+            <p>Understanding your numbers is step one. Improving them is everything. Here are the levers that actually work:</p>
+
+            <h3>1. Reduce CAC Through Channel Optimization</h3>
+            <p>Stop spending evenly. Identify which channels deliver the lowest-cost, highest-quality customers. Then double down.</p>
+
+            <p>If your organic search CAC is $35 but your Meta CAC is $75, shift budget from Meta to search. Yes, you'll acquire fewer customers total. But each customer will cost you less and likely have a higher LTV because they're intent-based.</p>
+
+            <p>The second move: optimize creative and copy within each channel. A 10% improvement in CTR or conversion rate is a direct 10% CAC reduction with zero additional spend.</p>
+
+            <h3>2. Increase LTV Through Repeat Purchase Optimization</h3>
+            <p>This is where the leverage lives. A 20% improvement in repeat purchase rate can double your profitability.</p>
+
+            <p>Implement <a href="/blog/email-retention-strategy-ltv.html">systematic email retention campaigns</a>. Build a loyalty program. Create a subscription option. These don't cost much but they compound:</p>
+
+            <ul>
+                <li>Segment your email list and send targeted reactivation campaigns to lapsed customers (converts at 15–25%)</li>
+                <li>Implement an automated post-purchase sequence (increases repeat rate by 10–15%)</li>
+                <li>Test a VIP tier or membership program (increases AOV by 20–30%)</li>
+            </ul>
+
+            <h3>3. Increase AOV Without Increasing CAC</h3>
+            <p>Every dollar of AOV increase flows directly to your LTV. Here are the proven tactics:</p>
+
+            <ul>
+                <li><strong>Product bundling</strong> — "Starter kits" that combine complementary items, typically increasing AOV by 15–30%</li>
+                <li><strong>Upsells and cross-sells</strong> — Intelligently placed recommendations at checkout (targets 5–15% of customers)</li>
+                <li><strong>Tiered pricing</strong> — Offer "good, better, best" options; many customers upgrade for marginally higher spend</li>
+                <li><strong>Volume discounts</strong> — "Buy 2, save 10%" creates the psychology of a deal while increasing order size</li>
+            </ul>
+
+            <h3>4. Optimize Margin Without Cutting Quality</h3>
+            <p>COGS optimization is less sexy than "growth hacks" but equally important:</p>
+
+            <ul>
+                <li>Renegotiate supplier contracts quarterly, especially if you've grown</li>
+                <li>Consolidate SKUs; most brands have 20% of products generating 80% of profit</li>
+                <li>Review packaging costs; can you reduce box size or weight to save on fulfillment?</li>
+                <li>Consider in-house fulfillment if you're doing 200+ orders per day (3PL economics flip)</li>
+            </ul>
+
+            <h3>5. Build a Scalable Acquisition Strategy</h3>
+            <p>Look at <a href="/blog/dtc-growth-funnel-strategy.html">building a DTC growth funnel</a> that has predictable unit economics at scale. The brands with the best unit economics have:</p>
+
+            <ul>
+                <li><strong>Organic/owned channels (email, SMS)</strong> — 30–40% of acquisition</li>
+                <li><strong>Paid social and search</strong> — 40–50% of acquisition</li>
+                <li><strong>Influencer and affiliate</strong> — 10–20% of acquisition</li>
+            </ul>
+
+            <p>This diversification reduces platform risk and naturally lowers average CAC because owned channels have near-zero incremental cost.</p>
+
+            <h3>6. Test Pricing Strategically</h3>
+            <p>Most DTC brands are underpriced. Run small tests: raise prices 10%, measure the impact on conversion rate and revenue. Often you'll see revenue increase even if volume drops because the margin gain outweighs the volume loss.</p>
+
+            <p>Price elasticity varies by category, but premium positioning also tends to improve LTV (higher-price customers are more loyal and have higher AOV repeat purchases).</p>
+
+            <!-- Pro Tips Box -->
+            <div class="pro-tips">
+                <h3>Pro Tips</h3>
+                <ul>
+                    <li><strong>Track CAC weekly, not monthly.</strong> Monthly review is too slow. By week 3 you could already be overspending.</li>
+                    <li><strong>Segment your LTV by cohort.</strong> First-time customers acquired on Meta have different LTVs than influencer referrals. Calculate separately.</li>
+                    <li><strong>Use cohort analysis.</strong> Instead of blended metrics, track how each acquisition cohort performs over time. This reveals which channels deliver the best long-term economics.</li>
+                    <li><strong>Build unit economics into your marketing dashboard.</strong> If you're not seeing LTV:CAC ratio in real-time, you're making decisions on incomplete data.</li>
+                    <li><strong>Benchmark quarterly, not annually.</strong> DTC economics shift fast. What worked in Q1 might be broken by Q3 if you don't stay current.</li>
+                </ul>
+            </div>
+
+            <!-- Article CTA -->
+            <div class="article-cta">
+                <h3>Scale Your DTC With Solid Economics</h3>
+                <p>Unit economics are the foundation of sustainable growth. But metrics alone don't convert more customers or build retention systems. The <a href="/products/complete-conversion-stack.html">Complete Conversion Stack</a> is a comprehensive system for optimizing every stage of the DTC funnel—from acquisition through retention—so your unit economics actually improve.</p>
+                <a href="/products/complete-conversion-stack.html" class="btn-primary">Explore Complete Conversion Stack</a>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2 id="faq">Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">What's a good LTV:CAC ratio?</div>
+                    <div class="faq-answer">
+                        <p>The industry benchmark is 3:1 or better. This means for every $1 you spend acquiring a customer, you make at least $3 in lifetime profit. However, this varies by business stage: early-stage brands ($2–5M revenue) often need 4:1 to stay profitable, while mature brands ($50M+) can operate sustainably at 2:1 because overhead is spread across a massive customer base.</p>
+                        <p>The key is that your ratio should be stable or improving. If it's declining month-over-month, you have a fundamental problem you need to fix quickly.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How do I calculate payback period?</div>
+                    <div class="faq-answer">
+                        <p>Payback period tells you how long it takes to recover your acquisition cost through customer purchases. The formula is:</p>
+                        <p><code>Payback Period = CAC / (Average Monthly Contribution Margin per Customer)</code></p>
+                        <p>If your CAC is $60 and each customer generates $10 in contribution margin per month, your payback period is 6 months. The benchmark is 12 months or less. Anything beyond 12 months means you're burning cash waiting for recovery.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What's included in CAC?</div>
+                    <div class="faq-answer">
+                        <p>Most brands undercount their CAC. It should include:</p>
+                        <ul>
+                            <li>All paid advertising (Meta, Google, TikTok, Pinterest, etc.)</li>
+                            <li>Influencer partnerships and affiliate commissions</li>
+                            <li>Email and SMS platform costs (allocated to acquisition)</li>
+                            <li>Content creation and production</li>
+                            <li>In-house marketing team salaries (allocated)</li>
+                            <li>Agency fees</li>
+                            <li>Creative and photography</li>
+                        </ul>
+                        <p>Many brands only count paid ads and get a CAC that's 30–50% too low. This leads to bad decisions about scaling.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How often should I recalculate my unit economics?</div>
+                    <div class="faq-answer">
+                        <p>Weekly for CAC, monthly for LTV. CAC changes fast based on ad spend and conversion rates, so you want to catch problems early. LTV takes longer to stabilize because it's based on historical repeat purchases, but reviewing it monthly keeps you honest about whether your retention initiatives are working.</p>
+                        <p>Do a comprehensive quarterly review that includes cohort analysis by channel, season, and product category. This reveals deeper trends that monthly metrics can hide.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Author Bio -->
+            <div class="author-bio">
+                <div class="author-bio-image">👤</div>
+                <div class="author-bio-content">
+                    <h3>Jack Maullin</h3>
+                    <p>Founder of DTC Systems. I've built and scaled ecommerce brands doing $8M–$50M+ in revenue, with deep expertise in unit economics, customer retention, and DTC growth funnels. I share what actually works—not theory, but systems I've tested across multiple brands.</p>
+                    <a href="https://linkedin.com/in/jackmaullin" target="_blank">Connect on LinkedIn</a>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="related-articles">
+                <h2>Keep Reading</h2>
+                <div class="articles-grid">
+                    <div class="article-card">
+                        <div class="article-card-category">DTC Growth Strategy</div>
+                        <h3>The DTC Growth Funnel: Building a Scalable Customer Acquisition Strategy</h3>
+                        <p>Learn how to structure your funnel for predictable growth, optimize each stage, and scale sustainably without breaking your unit economics.</p>
+                        <a href="/blog/dtc-growth-funnel-strategy.html">Read Article →</a>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="article-card-category">Post-Purchase &amp; Retention</div>
+                        <h3>Email Retention Strategy for Maximising Lifetime Value</h3>
+                        <p>Build a systematic email program that keeps customers buying. Includes templates, automation sequences, and the exact metrics that predict LTV growth.</p>
+                        <a href="/blog/email-retention-strategy-ltv.html">Read Article →</a>
+                    </div>
+
+                    <div class="article-card">
+                        <div class="article-card-category">AI for DTC eCommerce</div>
+                        <h3>How AI Is Transforming DTC eCommerce Operations</h3>
+                        <p>From demand forecasting to customer segmentation, AI is changing how DTC brands optimize. See where you can apply it for competitive advantage.</p>
+                        <a href="/blog/ai-transforming-dtc-ecommerce.html">Read Article →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <a href="/">DTC Systems</a>. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <!-- JSON-LD Article Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "DTC Unit Economics: Calculating CAC, LTV, and Profitability",
+        "description": "Learn how to calculate CAC, LTV, and profitability metrics for your DTC brand. Complete guide with formulas, benchmarks, and optimization strategies.",
+        "image": "https://dtcsystems.ai/og-image.jpg",
+        "datePublished": "2026-04-07",
+        "dateModified": "2026-04-07",
+        "author": {
+            "@type": "Person",
+            "name": "Jack Maullin",
+            "url": "https://linkedin.com/in/jackmaullin"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "DTC Systems",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://dtcsystems.ai/logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://dtcsystems.ai/blog/dtc-unit-economics.html"
+        },
+        "articleBody": "DTC unit economics measure customer acquisition cost (CAC), lifetime value (LTV), and profitability. The LTV:CAC ratio benchmark is 3:1 or better..."
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What's a good LTV:CAC ratio?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The industry benchmark is 3:1 or better. This means for every $1 you spend acquiring a customer, you make at least $3 in lifetime profit. However, this varies by business stage: early-stage brands often need 4:1 to stay profitable, while mature brands can operate sustainably at 2:1."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I calculate payback period?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Payback period is calculated as CAC divided by average monthly contribution margin per customer. If your CAC is $60 and each customer generates $10 in contribution margin per month, your payback period is 6 months."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's included in CAC?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "CAC should include all paid advertising, influencer partnerships, email and SMS platform costs, content creation, marketing salaries, agency fees, and creative production. Many brands only count paid ads and underestimate their true CAC by 30–50%."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How often should I recalculate my unit economics?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Review CAC weekly and LTV monthly. Do a comprehensive quarterly review including cohort analysis by channel, season, and product category to identify deeper trends."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- FAQ Interactivity -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
