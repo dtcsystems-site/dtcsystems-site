@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Marketing for DTC: Building AI-Powered Text Flows — DTC Systems Blog</title>
+    <meta name="google-site-verification" content="pVAF_b_D_OD7kkCEykHRVfeBVmUybDz_ndGkcC-pO7U" />
+    <meta name="description" content="A practitioner guide to building AI-driven SMS flows for DTC brands — welcome, abandoned cart, post-purchase, and win-back — with compliance-safe copy.">
+    <meta name="canonical" href="https://dtcsystems.ai/blog/sms-marketing-dtc-ai-flows.html">
+    <meta property="og:title" content="SMS Marketing for DTC: Building AI-Powered Text Flows">
+    <meta property="og:description" content="A practitioner guide to building AI-driven SMS flows for DTC brands — welcome, abandoned cart, post-purchase, and win-back — with compliance and compliance-safe copy.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://dtcsystems.ai/blog/sms-marketing-dtc-ai-flows.html">
+    <meta property="og:image" content="https://dtcsystems.ai/blog/sms-marketing-dtc-ai-flows-og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SMS Marketing for DTC: Building AI-Powered Text Flows">
+    <meta name="twitter:description" content="A practitioner guide to building AI-driven SMS flows for DTC brands — welcome, abandoned cart, post-purchase, and win-back — with compliance and compliance-safe copy.">
+    <meta name="twitter:image" content="https://dtcsystems.ai/blog/sms-marketing-dtc-ai-flows-og.jpg">
+    <meta property="article:published_time" content="2026-04-15">
+    <meta property="article:modified_time" content="2026-04-15">
+    <meta property="article:author" content="Jack Maullin">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --charcoal: #141414;
+            --dark-grey: #1a1a1a;
+            --mid-grey: #2a2a2a;
+            --border-grey: #333333;
+            --text-muted: #888888;
+            --text-light: #cccccc;
+            --white: #f5f5f5;
+            --gold: #c9a84c;
+            --gold-hover: #d4b85c;
+            --gold-dim: rgba(201, 168, 76, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAV */
+        nav {
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 3rem;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-grey);
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: var(--gold);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            transition: background 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-hover);
+        }
+
+        /* BACK TO BLOG */
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+        }
+
+        .back-link::before {
+            content: '\2190 ';
+        }
+
+        /* BREADCRUMBS */
+        .breadcrumbs {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumbs a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--gold);
+        }
+
+        /* ARTICLE HEADER */
+        .article-header {
+            max-width: 720px;
+            margin: 0 auto 3rem;
+            padding: 0 2rem;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-header h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* MAIN CONTENT */
+        .article-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* AI SNIPPET BOX */
+        .ai-snippet {
+            background: var(--charcoal);
+            border-left: 4px solid var(--gold);
+            padding: 1.5rem;
+            margin: 2.5rem 0;
+            border-radius: 2px;
+        }
+
+        .ai-snippet-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .ai-snippet p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--white);
+        }
+
+        /* TABLE OF CONTENTS */
+        .toc {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 1.5rem;
+            margin: 2.5rem 0;
+            border-radius: 2px;
+        }
+
+        .toc-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .toc a:hover {
+            color: var(--gold);
+        }
+
+        /* ARTICLE TEXT */
+        .article-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+            scroll-margin-top: 100px;
+        }
+
+        .article-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.75rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+            color: var(--text-light);
+            scroll-margin-top: 100px;
+        }
+
+        .article-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .article-content em {
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        .article-content a {
+            color: var(--gold);
+            text-decoration: underline;
+            text-decoration-color: rgba(201, 168, 76, 0.4);
+            text-underline-offset: 3px;
+            transition: all 0.2s ease;
+        }
+
+        .article-content a:hover {
+            color: var(--gold-hover);
+            text-decoration-color: var(--gold);
+        }
+
+        /* LISTS */
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            margin-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        /* BLOCKQUOTES */
+        .article-content blockquote {
+            border-left: 4px solid var(--gold);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            color: var(--text-light);
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* CODE BLOCKS */
+        .article-content code {
+            background: var(--charcoal);
+            padding: 0.2rem 0.4rem;
+            border-radius: 2px;
+            font-size: 0.9em;
+            color: var(--gold);
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 1.5rem;
+            border-radius: 2px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .article-content pre code {
+            background: none;
+            padding: 0;
+            color: var(--text-light);
+        }
+
+        /* CALLOUT BOXES */
+        .callout {
+            background: var(--charcoal);
+            border-left: 4px solid var(--gold);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 2px;
+        }
+
+        .callout-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .callout p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* PRO TIPS SECTION */
+        .pro-tips {
+            background: linear-gradient(135deg, var(--charcoal), rgba(201, 168, 76, 0.05));
+            border: 1px solid var(--border-grey);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border-radius: 2px;
+        }
+
+        .pro-tips h3 {
+            margin-top: 0;
+            color: var(--gold);
+        }
+
+        .pro-tips ul {
+            margin-left: 1.5rem;
+        }
+
+        .pro-tips li {
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+        }
+
+        /* FAQ SECTION */
+        .faq-section {
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-grey);
+            border-bottom: 1px solid var(--border-grey);
+        }
+
+        .faq-section h2 {
+            margin-top: 0;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* CTA BOX */
+        .article-cta {
+            background: var(--charcoal);
+            border: 1px solid var(--gold);
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            border-radius: 2px;
+        }
+
+        .article-cta h3 {
+            margin-top: 0;
+            color: var(--white);
+        }
+
+        .article-cta p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--gold);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-hover);
+            transform: translateY(-1px);
+        }
+
+        /* AUTHOR BIO */
+        .author-bio {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 2rem;
+            margin: 3rem 0;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            border-radius: 2px;
+        }
+
+        .author-bio-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 1px solid var(--border-grey);
+        }
+
+        .author-bio-content {
+            flex-grow: 1;
+        }
+
+        .author-bio-name {
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-bio-title {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .author-bio-text {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .author-bio-link {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            transition: opacity 0.2s ease;
+        }
+
+        .author-bio-link:hover {
+            opacity: 0.8;
+        }
+
+        .author-bio-link::after {
+            content: ' \2192';
+        }
+
+        /* RELATED ARTICLES */
+        .related-articles {
+            margin: 3rem 0;
+            padding: 2rem 0 0;
+            border-top: 1px solid var(--border-grey);
+        }
+
+        .related-articles h2 {
+            margin-top: 0;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .article-card {
+            background: var(--charcoal);
+            border: 1px solid var(--border-grey);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s ease;
+            border-radius: 2px;
+        }
+
+        .article-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .article-card-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .article-card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            color: var(--white);
+        }
+
+        .article-card-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .article-card-link {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: opacity 0.2s ease;
+        }
+
+        .article-card-link:hover {
+            opacity: 0.8;
+        }
+
+        .article-card-link::after {
+            content: ' \2192';
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 2rem 3rem;
+            border-top: 1px solid var(--border-grey);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: var(--gold);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .article-header {
+                padding: 0 1.5rem;
+            }
+
+            .article-content {
+                padding: 0 1.5rem;
+            }
+
+            .article-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.4rem;
+            }
+
+            .article-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .author-bio {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .author-bio-image {
+                margin: 0 auto;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 0.75rem;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a href="/" class="logo">DTC Systems<span>.</span></a>
+        <a href="/blog" class="nav-cta">Read Blog</a>
+    </nav>
+
+    <!-- BREADCRUMBS & BACK -->
+    <div class="article-content">
+        <a href="/blog" class="back-link">Back to blog</a>
+        <div class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
+                <meta itemprop="position" content="1">
+            </span>
+            &nbsp;/&nbsp;
+            <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="/blog"><span itemprop="name">Blog</span></a>
+                <meta itemprop="position" content="2">
+            </span>
+            &nbsp;/&nbsp;
+            <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name">SMS Marketing for DTC: Building AI-Powered Text Flows</span>
+                <meta itemprop="position" content="3">
+            </span>
+        </div>
+    </div>
+
+    <!-- ARTICLE HEADER -->
+    <article itemscope itemtype="https://schema.org/Article">
+        <meta itemprop="author" content="Jack Maullin">
+        <meta itemprop="publisher" content="DTC Systems">
+        <meta itemprop="headline" content="SMS Marketing for DTC: Building AI-Powered Text Flows">
+        <meta itemprop="description" content="A practitioner guide to building AI-driven SMS flows for DTC brands — welcome, abandoned cart, post-purchase, and win-back — with compliance and compliance-safe copy.">
+        <meta itemprop="image" content="https://dtcsystems.ai/blog/sms-marketing-dtc-ai-flows-og.jpg">
+        <meta itemprop="datePublished" content="2026-04-15">
+        <meta itemprop="dateModified" content="2026-04-15">
+
+        <header class="article-header">
+            <div class="article-meta">
+                <div class="meta-item">
+                    <span class="reading-time">9 min read</span>
+                </div>
+                <div class="meta-item">
+                    <span>Published <time itemprop="datePublished" datetime="2026-04-15">April 15, 2026</time></span>
+                </div>
+                <div class="meta-item">
+                    <span>By <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Jack Maullin</span></span></span>
+                </div>
+            </div>
+            <h1 itemprop="headline">SMS Marketing for DTC: Building AI-Powered Text Flows</h1>
+            <p itemprop="description">SMS is the highest-ROI channel most DTC brands are underusing. Here's how to build the flows that matter, with AI copy that doesn't sound like spam.</p>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <div class="article-content" itemprop="articleBody">
+
+            <!-- AI SNIPPET ZONE (First 100 words) -->
+            <div class="ai-snippet">
+                <div class="ai-snippet-label">Quick Answer</div>
+                <p>SMS marketing for DTC delivers roughly $71 in revenue for every $1 spent, with a 98% open rate and messages read within 3 minutes of delivery. AI-powered SMS flows — welcome, abandoned cart, post-purchase, and win-back — can be built and personalised without a retention agency. The key is matching flow timing to your actual repurchase window, writing copy that fits the medium (short, specific, friendly), and keeping subscriber quality above 90% through the first 30 days.</p>
+            </div>
+
+            <!-- TABLE OF CONTENTS -->
+            <nav class="toc">
+                <div class="toc-title">In This Guide</div>
+                <ul>
+                    <li><a href="#section-1">Why SMS matters in 2026</a></li>
+                    <li><a href="#section-2">The four flows every DTC brand should have</a></li>
+                    <li><a href="#section-3">Flow 1: SMS welcome series</a></li>
+                    <li><a href="#section-4">Flow 2: Abandoned cart SMS</a></li>
+                    <li><a href="#section-5">Flow 3: Post-purchase SMS</a></li>
+                    <li><a href="#section-6">Flow 4: Win-back SMS</a></li>
+                    <li><a href="#section-7">Compliance and list health</a></li>
+                    <li><a href="#tips">Pro tips</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+
+            <!-- STEP-BY-STEP SECTIONS -->
+            <h2 id="section-1">Why SMS matters in 2026</h2>
+            <p>SMS is the single most overperforming channel in the DTC stack. The numbers are genuinely striking: a 98% open rate against email's 30.7%, 95% of messages read within three minutes, and an average return of $71 for every $1 spent. Automated SMS flows convert at a click-to-conversion rate of 3.81%, nearly 4x the 0.97% rate for broadcast sends.</p>
+            <p>The reason more brands haven't built SMS into the core retention stack is partly cultural — founders worry about feeling spammy — and partly operational. Writing good SMS copy is harder than email. You have 160 characters to get attention, be useful, and earn the next tap. That's where AI earns its seat: generating SMS-native variants that match your brand voice without sounding like marketing.</p>
+
+            <h2 id="section-2">The four flows every DTC brand should have</h2>
+            <p>If you're starting from zero, build these four flows, in this order: welcome, abandoned cart, post-purchase, win-back. SMS flows account for just 7.6% of sends but drive 45.2% of total SMS revenue — the leverage sits in automated flows, not campaigns.</p>
+            <p>Each flow has one job, one trigger, and a specific number of messages. Over-sending is the fastest way to kill your list.</p>
+
+            <h2 id="section-3">Flow 1: SMS welcome series</h2>
+            <p>Triggered the moment a visitor opts into SMS (usually via a popup or checkout box). Three messages, spread over 48 hours.</p>
+            <h3>The structure that works</h3>
+            <ul>
+                <li><strong>Message 1 (immediate):</strong> Welcome + the promised offer (discount code or free gift). Include a shoppable link.</li>
+                <li><strong>Message 2 (24 hours later):</strong> Brand story in 2 sentences + the best-selling product. Reminds them who you are before they forget.</li>
+                <li><strong>Message 3 (48 hours later):</strong> Urgency push if they haven't purchased — offer expires in 24h, last chance.</li>
+            </ul>
+            <p>Welcome flows — email or SMS — routinely have the highest open and click rates of any sequence. On email specifically, welcome series generate 22x more revenue per send than newsletters. SMS amplifies that.</p>
+
+            <h2 id="section-4">Flow 2: Abandoned cart SMS</h2>
+            <p>Abandoned cart is the single highest-revenue flow in ecommerce. On email it generates an average of $3.65 per recipient. SMS layered on top lifts recovery further because it hits the customer before the ad retargeting even warms up.</p>
+            <p>Two messages, tight timing: the first at 2 hours after abandon (short, friendly, direct link back), the second at 24 hours with a small incentive. Don't add a third — the return on the third message is usually negative because it pushes unsubscribes.</p>
+
+            <h2 id="section-5">Flow 3: Post-purchase SMS</h2>
+            <p>This is where most brands get SMS wrong. They send one transactional "thanks for your order" and stop. The best post-purchase SMS flows track the product's actual use cycle.</p>
+            <p>For a consumable with a 30-day repurchase window (coffee, supplements, skincare), the flow should include a check-in around day 10 ("how's it going?"), a usage tip around day 20, and a repurchase nudge around day 25 — not day 30. Sale alerts specifically convert at 22.2%, one of the highest-performing SMS campaign types.</p>
+            <p>For a 90-day product, stretch the same structure across 90 days. For a 6-month product (sheets, electronics), lean heavily into referral and cross-sell instead of repurchase.</p>
+
+            <h2 id="section-6">Flow 4: Win-back SMS</h2>
+            <p>Any subscriber who hasn't purchased in 90 days (or 2x your typical repurchase window, whichever is longer) gets the win-back flow. Two messages.</p>
+            <p>Message one is a "we miss you" with a meaningful incentive. Message two, 5 days later, is a "final chance" with a stronger incentive. After that, suppress them from flows for 60 days — list health matters more than one more attempted send.</p>
+
+            <h2 id="section-7">Compliance and list health</h2>
+            <p>SMS compliance is strict in the US (TCPA) and tightening elsewhere. Three non-negotiables: explicit opt-in at capture, a functional STOP keyword, and no transactional/promotional blending without consent. AI can write the copy but compliance is still on you.</p>
+            <p>List health is the other discipline. A good SMS retention rate is above 90% after the first 30 days — top performers retain 97–99%. If your 30-day retention is below 85%, your flows are over-sending or your capture experience is setting the wrong expectation.</p>
+        
+            <!-- PRO TIPS -->
+            <div class="pro-tips" id="tips">
+                <h3>Pro Tips for Better Results</h3>
+                <ul>
+                    <li><strong>Treat SMS copy like a friend texting:</strong> Not a marketer broadcasting. Short, specific, conversational. If it reads like an ad, it fails.</li>
+                    <li><strong>Never send between 9pm and 9am local time:</strong> Time zones matter. A 2am text tanks retention regardless of copy quality.</li>
+                    <li><strong>Segment aggressively:</strong> SMS is expensive per message. Segment by purchase history, engagement, and repurchase window — don't blast the whole list.</li>
+                </ul>
+            </div>
+
+            <!-- FAQ SECTION -->
+            <section class="faq-section" id="faq" itemscope itemtype="https://schema.org/FAQPage">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <h3 class="faq-question" itemprop="name">How is SMS different from email in DTC?</h3>
+                    <div itemscope itemtype="https://schema.org/Answer">
+                        <p class="faq-answer" itemprop="text">SMS has higher open rates (98% vs 30.7%) but lower tolerance. One bad send can lose 5–10% of your list. Email is forgiving; SMS is not. Treat SMS as a premium channel reserved for your highest-intent moments.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <h3 class="faq-question" itemprop="name">What platform should I use for SMS?</h3>
+                    <div itemscope itemtype="https://schema.org/Answer">
+                        <p class="faq-answer" itemprop="text">For most Shopify DTC brands, Klaviyo or Postscript cover the core flows. Pick whichever your email is already on — the integration cost of a second tool isn't usually worth it.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <h3 class="faq-question" itemprop="name">What ROI should I expect from SMS?</h3>
+                    <div itemscope itemtype="https://schema.org/Answer">
+                        <p class="faq-answer" itemprop="text">Industry benchmarks suggest roughly $71 in revenue for every $1 spent, though your actual return depends on list quality, product economics, and flow maturity. Flows specifically convert at a click-to-conversion rate of 3.81%.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemscope itemtype="https://schema.org/Question">
+                    <h3 class="faq-question" itemprop="name">Do I need different copy for SMS versus email?</h3>
+                    <div itemscope itemtype="https://schema.org/Answer">
+                        <p class="faq-answer" itemprop="text">Yes. Email can be 200+ words. SMS has to work in 160 characters, with a link. The copy disciplines are genuinely different — don't just trim your emails.</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- CTA TO PRODUCT -->
+            <div class="article-cta">
+                <h3>Ready to implement this?</h3>
+                <p>Use Post-Purchase Flow Builder to automate writing SMS and email flows calibrated to your product's repurchase window. Built by someone who does this daily.</p>
+                <a href="/products/post-purchase-flow-builder.html" class="btn-primary">Explore Post-Purchase Flow Builder</a>
+                <!-- PRODUCT LINK EXAMPLE: /products/landing-page-builder.html -->
+            </div>
+
+        </div>
+
+        <!-- AUTHOR BIO -->
+        <div class="article-content">
+            <div class="author-bio">
+                <img src="/blog/jack-bio-photo.jpg" alt="Jack Maullin" class="author-bio-image">
+                <div class="author-bio-content">
+                    <div class="author-bio-name">Jack Maullin</div>
+                    <div class="author-bio-title">Founder, DTC Systems AI</div>
+                    <p class="author-bio-text">Jack is an operator and AI systems builder. He runs DTC Systems and previously spent 10+ years operating eCommerce across scaling DTC brands including Koala, Vivo Life, and Myprotein.</p>
+                    <a href="https://www.linkedin.com/in/jackmaullin/" target="_blank" rel="noopener" class="author-bio-link">Connect on LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- RELATED ARTICLES -->
+    <section class="article-content related-articles">
+        <h2>More from the Blog</h2>
+        <div class="articles-grid">
+            <div class="article-card">
+                <div class="article-card-tag">Guide</div>
+                <h3 class="article-card-title">AI Post-Purchase Email Flows: The Complete Setup Guide</h3>
+                <p class="article-card-desc">The email companion to SMS flows — build both for full coverage.</p>
+                <a href="/blog/post-purchase-email-flows-guide.html" class="article-card-link">Read article</a>
+            </div>
+            <div class="article-card">
+                <div class="article-card-tag">Retention</div>
+                <h3 class="article-card-title">How to Build an Email Retention Strategy That Increases LTV</h3>
+                <p class="article-card-desc">The broader retention strategy SMS flows plug into.</p>
+                <a href="/blog/email-retention-strategy-ltv.html" class="article-card-link">Read article</a>
+            </div>
+            <div class="article-card">
+                <div class="article-card-tag">Automation</div>
+                <h3 class="article-card-title">Customer Email Workflows: Design, Copy, and Automation</h3>
+                <p class="article-card-desc">How to design multi-channel workflows that stitch email and SMS together.</p>
+                <a href="/blog/customer-email-workflows-automation.html" class="article-card-link">Read article</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <span>&copy; 2026 DTC Systems AI. All rights reserved.</span>
+        <span><a href="mailto:jack@dtcsystems.ai">jack@dtcsystems.ai</a></span>
+    </footer>
+
+    <!-- JSON-LD ARTICLE SCHEMA -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "SMS Marketing for DTC: Building AI-Powered Text Flows",
+        "description": "A practitioner guide to building AI-driven SMS flows for DTC brands — welcome, abandoned cart, post-purchase, and win-back — with compliance and compliance-safe copy.",
+        "image": "https://dtcsystems.ai/blog/sms-marketing-dtc-ai-flows-og.jpg",
+        "datePublished": "2026-04-15",
+        "dateModified": "2026-04-15",
+        "author": {
+            "@type": "Person",
+            "name": "Jack Maullin",
+            "url": "https://www.linkedin.com/in/jackmaullin/"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "DTC Systems",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://dtcsystems.ai/logo.png",
+                "width": 600,
+                "height": 60
+            }
+        }
+    }
+    </script>
+
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is SMS different from email in DTC?","acceptedAnswer":{"@type":"Answer","text":"SMS has higher open rates (98% vs 30.7%) but lower tolerance. One bad send can lose 5–10% of your list. Email is forgiving; SMS is not. Treat SMS as a premium channel reserved for your highest-intent moments."}},{"@type":"Question","name":"What platform should I use for SMS?","acceptedAnswer":{"@type":"Answer","text":"For most Shopify DTC brands, Klaviyo or Postscript cover the core flows. Pick whichever your email is already on — the integration cost of a second tool isn't usually worth it."}},{"@type":"Question","name":"What ROI should I expect from SMS?","acceptedAnswer":{"@type":"Answer","text":"Industry benchmarks suggest roughly $71 in revenue for every $1 spent, though your actual return depends on list quality, product economics, and flow maturity. Flows specifically convert at a click-to-conversion rate of 3.81%."}},{"@type":"Question","name":"Do I need different copy for SMS versus email?","acceptedAnswer":{"@type":"Answer","text":"Yes. Email can be 200+ words. SMS has to work in 160 characters, with a link. The copy disciplines are genuinely different — don't just trim your emails."}}]}
+    </script>
+
+</body>
+</html>

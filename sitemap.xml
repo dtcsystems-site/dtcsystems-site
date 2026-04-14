@@ -3,7 +3,7 @@
     <!-- Homepage -->
     <url>
         <loc>https://dtcsystems.ai/</loc>
-        <lastmod>2026-04-12</lastmod>
+        <lastmod>2026-04-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -45,7 +45,7 @@
     <!-- Blog Index -->
     <url>
         <loc>https://dtcsystems.ai/blog/</loc>
-        <lastmod>2026-04-12</lastmod>
+        <lastmod>2026-04-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -53,49 +53,49 @@
     <!-- Blog Category Pages -->
     <url>
         <loc>https://dtcsystems.ai/blog/category/ai-for-dtc</loc>
-        <lastmod>2026-04-12</lastmod>
+        <lastmod>2026-04-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://dtcsystems.ai/blog/category/ai-landing-pages</loc>
-        <lastmod>2026-04-12</lastmod>
+        <lastmod>2026-04-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://dtcsystems.ai/blog/category/cro-conversion-copy</loc>
-        <lastmod>2026-04-12</lastmod>
+        <lastmod>2026-04-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://dtcsystems.ai/blog/category/post-purchase-retention</loc>
-        <lastmod>2026-04-12</lastmod>
+        <lastmod>2026-04-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://dtcsystems.ai/blog/category/shopify-ai</loc>
-        <lastmod>2026-04-12</lastmod>
+        <lastmod>2026-04-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://dtcsystems.ai/blog/category/dtc-growth-strategy</loc>
-        <lastmod>2026-04-12</lastmod>
+        <lastmod>2026-04-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://dtcsystems.ai/blog/category/ai-tools-comparisons</loc>
-        <lastmod>2026-04-12</lastmod>
+        <lastmod>2026-04-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://dtcsystems.ai/blog/category/ai-content-automation</loc>
-        <lastmod>2026-04-12</lastmod>
+        <lastmod>2026-04-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -208,5 +208,37 @@
         <lastmod>2026-04-04</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
+    </url>
+
+    <!-- New articles: 2026-04-15 batch -->
+    <url>
+        <loc>https://dtcsystems.ai/blog/ai-powered-dtc-growth-guide</loc>
+        <lastmod>2026-04-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://dtcsystems.ai/blog/ai-powered-cro-guide</loc>
+        <lastmod>2026-04-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://dtcsystems.ai/blog/sms-marketing-dtc-ai-flows</loc>
+        <lastmod>2026-04-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://dtcsystems.ai/blog/shopify-email-automation-ai</loc>
+        <lastmod>2026-04-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://dtcsystems.ai/blog/scaling-dtc-brands-1m-10m</loc>
+        <lastmod>2026-04-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
 </urlset>
