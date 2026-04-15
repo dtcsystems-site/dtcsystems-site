@@ -361,10 +361,42 @@
         }
 
         .cred-layout {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .cred-pillars {
             display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 3rem;
-            align-items: start;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .cred-pillar {
+            border: 1px solid var(--border-grey);
+            padding: 1.5rem 1rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .cred-pillar:hover {
+            border-color: var(--gold);
+        }
+
+        .cred-pillar-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--gold);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .cred-pillar-text {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 300;
+            line-height: 1.5;
         }
 
         .cred-headshot {
@@ -493,15 +525,8 @@
                 gap: 2rem;
             }
 
-            .cred-layout {
+            .cred-pillars {
                 grid-template-columns: 1fr;
-                justify-items: center;
-                text-align: center;
-            }
-
-            .cred-headshot {
-                width: 160px;
-                height: 200px;
             }
 
             .products-grid {
@@ -626,14 +651,26 @@
     <section id="built-by" class="cred-section">
         <div class="section-inner">
             <div class="section-label">Built By</div>
-            <h2 class="section-title">Not another AI consultant.<br>An operator who builds this daily.</h2>
+            <h2 class="section-title">Not another AI consultancy.<br>Systems built by operators.</h2>
             <div class="cred-layout">
                 <div class="cred-content">
                     <p class="cred-text">
-                        DTC Systems is built by operators who run AI systems inside scaling DTC eCommerce brands full-time. Every product sold here is a system we've built, tested, and run in production — not theory, not an agency playbook.
-                        <br><br>
-                        The R&D happens on the day job. DTC Systems packages the best of it so other founders can plug it in without starting from scratch.
+                        DTC Systems is built by operators running AI inside scaling DTC eCommerce brands full-time. Every product sold here is a system we've built, tested, and run in production — not theory, not an agency playbook. The R&D happens on the day job. DTC Systems packages the best of it so other founders can plug it in without starting from scratch.
                     </p>
+                </div>
+            </div>
+            <div class="cred-pillars">
+                <div class="cred-pillar">
+                    <div class="cred-pillar-label">Production-tested</div>
+                    <div class="cred-pillar-text">Every system runs live inside scaling DTC brands before we ship it here.</div>
+                </div>
+                <div class="cred-pillar">
+                    <div class="cred-pillar-label">Operator-built</div>
+                    <div class="cred-pillar-text">Built by people who run eCommerce P&Ls — not consultants selling decks.</div>
+                </div>
+                <div class="cred-pillar">
+                    <div class="cred-pillar-label">Install in minutes</div>
+                    <div class="cred-pillar-text">No prompt engineering, no onboarding calls. Buy it, install it, use it.</div>
                 </div>
             </div>
         </div>
